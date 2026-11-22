@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ФК онлайн · Стрибок у довжину з місця та стартовий розбіг · Медколедж</title>
+<meta name="description" content="Інтерактивне онлайн-заняття з фізичної культури для студентів медичного коледжу: удосконалення стрибка у довжину з місця, старту та стартового розбігу. Розминка, заминка, тести, інфографіка.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F4511E'/%3E%3Cpath d='M14 28h20l17-8v11l-17 6a12 12 0 1 1-20-9z' fill='white'/%3E%3Ccircle cx='26' cy='39' r='4' fill='%23F4511E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF6EE; --paper2:#F2EBDD; --card:#FFFFFF; --ink:#1C2433; --ink2:#414B5E; --mut:#6C7486;
+  --line:#E8E0D0; --line2:#D8CEBB;
+  --orange:#F4511E; --orangeD:#C93A10; --orangeS:#FEEDE4;
+  --amber:#F59F0A; --amberD:#B45309; --amberS:#FEF3DA;
+  --blue:#2563EB; --blueD:#1E4FC2; --blueS:#E7EEFE; --sky:#0EA5E9;
+  --teal:#0D9488; --tealD:#0B7268; --tealS:#DFF3F0;
+  --violet:#7C3AED; --violetD:#6023C0; --violetS:#F0E9FD;
+  --green:#3E9B4F; --greenD:#2E7D3B; --greenS:#E6F4E7;
+  --red:#E11D48; --redD:#BE123C; --redS:#FDE8EC;
+  --gold:#EAB308;
+  --acc:var(--orange); --accD:var(--orangeD); --accS:var(--orangeS);
+  --navH:66px; --r:18px;
+  --sh:0 12px 32px rgba(28,36,51,.09),0 2px 8px rgba(28,36,51,.05);
+  --disp:'Unbounded',system-ui,sans-serif; --body:'Manrope','Segoe UI',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scrollbar-color:var(--orange) var(--paper2)}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:16px;line-height:1.55;overflow-x:clip}
+::selection{background:var(--orangeS);color:var(--orangeD)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--paper2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--orange),var(--amber));border-radius:9px;border:2.5px solid var(--paper2)}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--orangeD),var(--amberD))}
+body::after{content:"";position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{max-width:100%}
+button{font-family:inherit;cursor:pointer}
+input,select,output{font-family:inherit}
+a{color:var(--accD)}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.ic{display:inline-flex;width:18px;height:18px;flex:none}
+.ic svg{width:100%;height:100%}
+.ic-lg{width:22px;height:22px}
+h1,h2,.disp{font-family:var(--disp)}
+.mono{font-family:var(--mono)}
+/* ---------- NAV ---------- */
+#navBar{position:fixed;top:0;left:0;right:0;height:var(--navH);z-index:100;background:rgba(250,246,238,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+#navBar.scrolled{box-shadow:0 8px 26px rgba(28,36,51,.10)}
+.nav-in{max-width:1180px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo-b{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--orange),var(--amber));display:grid;place-items:center;color:#fff;box-shadow:0 5px 14px rgba(244,81,30,.35)}
+.logo-b svg{width:21px;height:21px}
+.logo-t b{display:block;font-family:var(--disp);font-weight:700;font-size:12.5px;letter-spacing:.06em;line-height:1.15}
+.logo-t span{font-size:10.5px;color:var(--mut);font-weight:600}
+.nav-links{display:flex;gap:3px;margin-left:auto}
+.nav-links a{text-decoration:none;color:var(--ink2);font-weight:700;font-size:13.5px;padding:8px 12px;border-radius:10px;transition:.2s;white-space:nowrap}
+.nav-links a:hover{background:var(--paper2);color:var(--ink)}
+.nav-links a.active{background:var(--ink);color:#fff}
+.nav-right{display:flex;align-items:center;gap:9px;margin-left:6px}
+.icon-btn{width:40px;height:40px;border-radius:12px;border:1.5px solid var(--line2);background:var(--card);display:grid;place-items:center;color:var(--ink);transition:.2s}
+.icon-btn:hover{border-color:var(--orange);color:var(--orangeD);transform:translateY(-1px)}
+.icon-btn.off{color:var(--mut);background:var(--paper2)}
+.prog-chip{display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:99px;background:var(--card);border:1.5px solid var(--line2);font-size:12.5px;font-weight:700;color:var(--ink2)}
+.prog-chip b{font-family:var(--mono);color:var(--orangeD);font-size:13.5px}
+.prog-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--amber));box-shadow:0 0 0 3px var(--orangeS)}
+#navProg{position:absolute;left:0;bottom:-1px;width:100%;height:3px}
+#navProgFill{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--amber),var(--green));transition:width .6s cubic-bezier(.2,.7,.2,1);border-radius:0 3px 3px 0}
+#burger{display:none}
+/* ---------- BUTTONS / CHIPS / CARDS ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 22px;border-radius:13px;border:1.5px solid transparent;font-weight:800;font-size:14.5px;text-decoration:none;transition:transform .16s,box-shadow .2s,background .2s,color .2s;line-height:1.2}
+.btn:active{transform:scale(.965)}
+.btn-acc{background:var(--acc);color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--acc) 38%,transparent)}
+.btn-acc:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 8px 20px rgba(28,36,51,.25)}
+.btn-ink:hover{transform:translateY(-2px)}
+.btn-ghost{background:var(--card);border-color:var(--line2);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--acc);color:var(--accD);transform:translateY(-1px)}
+.btn-sm{padding:9px 14px;font-size:13px;border-radius:11px}
+.btn[disabled]{opacity:.5;pointer-events:none}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:99px;background:var(--card);border:1.5px solid var(--line);font-size:12.5px;font-weight:700;color:var(--ink2)}
+.chip .ic{width:15px;height:15px;color:var(--accD)}
+.chip-acc{background:var(--accS);border-color:color-mix(in srgb,var(--acc) 35%,#fff);color:var(--accD)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:24px}
+.note{display:flex;gap:12px;align-items:flex-start;padding:15px 17px;border-radius:14px;border:1.5px dashed color-mix(in srgb,var(--acc) 55%,#fff);background:var(--accS);font-size:13.5px;color:var(--ink2);font-weight:600}
+.note .ic{color:var(--accD);margin-top:2px}
+.note b{color:var(--accD)}
+.status{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;border:1.5px solid var(--line2);background:var(--card);font-size:12px;font-weight:800;color:var(--mut);transition:.3s}
+.status.done{background:var(--greenS);border-color:var(--green);color:var(--greenD)}
+/* ---------- HERO ---------- */
+.hero{position:relative;padding:calc(var(--navH) + 52px) 0 66px;overflow:clip}
+.blob{position:absolute;border-radius:50%;filter:blur(72px);pointer-events:none;opacity:.6;animation:drift 22s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(34px,-26px) scale(1.12)}}
+.hero-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:44px;align-items:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 15px;border-radius:99px;background:var(--card);border:1.5px solid var(--line2);font-size:11.5px;font-weight:800;letter-spacing:.12em;color:var(--ink2);text-transform:uppercase}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px var(--orangeS);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px var(--orangeS)}50%{box-shadow:0 0 0 6px rgba(244,81,30,.12)}}
+.hero h1{font-size:clamp(2rem,4.6vw,3.55rem);font-weight:900;line-height:1.12;margin:20px 0 6px;letter-spacing:-.01em}
+.hero h1 .l2{display:block;font-size:clamp(1.25rem,2.6vw,2rem);font-weight:700;margin-top:12px;color:var(--ink2)}
+.grad-o{background:linear-gradient(100deg,var(--orange) 20%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.grad-b{background:linear-gradient(100deg,var(--blue) 20%,var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:16.5px;color:var(--ink2);max-width:56ch;margin-top:14px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.equip{margin-top:14px;font-size:13px;color:var(--mut);font-weight:600;display:flex;gap:8px;align-items:flex-start}
+.equip .ic{color:var(--orangeD);margin-top:2px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.route{margin-top:34px}
+.route-t{font-size:11.5px;font-weight:800;letter-spacing:.14em;color:var(--mut);text-transform:uppercase;margin-bottom:10px}
+.route-track{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+.step{min-width:146px;flex:1;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;transition:.2s;text-align:left}
+.step:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:var(--sh)}
+.step-n{font-family:var(--mono);font-size:10.5px;color:var(--mut);font-weight:700;display:flex;justify-content:space-between}
+.step-n .ok{color:var(--greenD);display:none}
+.step b{display:block;font-size:13.5px;margin:4px 0 2px}
+.step span{font-size:11.5px;color:var(--mut);font-weight:700}
+.step.done{border-color:var(--green);background:var(--greenS)}
+.step.done .ok{display:inline}
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px;position:relative}
+.goal{display:flex;gap:13px;align-items:flex-start;padding:18px}
+.goal .gi{width:42px;height:42px;flex:none;border-radius:13px;display:grid;place-items:center;color:#fff}
+.goal b{font-size:14.5px;display:block;margin-bottom:3px}
+.goal p{font-size:12.8px;color:var(--mut);font-weight:600;line-height:1.5}
+.poster{position:relative}
+.poster svg{width:100%;height:auto;display:block}
+.float-card{position:absolute;display:flex;gap:9px;align-items:center;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:11px 15px;box-shadow:var(--sh);font-size:12.5px;font-weight:800;animation:bob 6s ease-in-out infinite alternate}
+.float-card small{display:block;font-size:10.5px;color:var(--mut);font-weight:700}
+.float-card .ic{width:20px;height:20px}
+.fc1{top:4%;right:0;color:var(--orangeD)}
+.fc2{bottom:12%;left:-2%;color:var(--blueD);animation-delay:-3s}
+@keyframes bob{from{transform:translateY(-6px)}to{transform:translateY(7px)}}
+/* ---------- SECTIONS ---------- */
+section{position:relative;padding:74px 0;scroll-margin-top:calc(var(--navH) + 16px)}
+section::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(720px 340px at 88% 0%,var(--accS),transparent 70%);opacity:.75}
+.sec-head{display:flex;align-items:flex-end;gap:18px;margin-bottom:28px;position:relative;flex-wrap:wrap}
+.sec-num{font-family:var(--disp);font-weight:900;font-size:54px;line-height:.82;color:var(--accS);-webkit-text-stroke:2px var(--acc)}
+.sec-title h2{font-size:clamp(1.4rem,2.8vw,2.15rem);font-weight:700;line-height:1.15}
+.sec-title p{font-size:13.5px;color:var(--mut);font-weight:600;margin-top:5px;max-width:62ch}
+.sec-meta{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px;position:relative}
+.grid-2w{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;position:relative}
+.card h3{font-size:16.5px;font-weight:800;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.card h3 .ic{color:var(--accD)}
+/* ---------- VIDEO ---------- */
+.yt{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,var(--accS),#fff 65%,var(--paper2));border:1px solid var(--line);cursor:pointer}
+.yt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,36,51,.05) 40%,rgba(28,36,51,.62))}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.yt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;z-index:2;box-shadow:0 10px 30px rgba(28,36,51,.35);transition:.25s;border:none}
+.yt:hover .yt-play{transform:translate(-50%,-50%) scale(1.1)}
+.yt-play::before{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid rgba(255,255,255,.65);animation:ring 2s infinite}
+@keyframes ring{from{transform:scale(.9);opacity:1}to{transform:scale(1.35);opacity:0}}
+.yt-label{position:absolute;left:16px;right:16px;bottom:13px;z-index:2;color:#fff;font-weight:800;font-size:13.5px;line-height:1.35;text-shadow:0 2px 8px rgba(0,0,0,.4)}
+.yt-label small{display:block;font-weight:600;font-size:11.5px;opacity:.85}
+.yt-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:13px;font-size:13.5px;font-weight:800}
+.yt-links a{display:inline-flex;gap:6px;align-items:center;text-decoration:none;color:var(--accD)}
+.yt-links a:hover{text-decoration:underline}
+/* ---------- CHECKLIST ---------- */
+.ck-list{display:flex;flex-direction:column;gap:8px}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;transition:.2s}
+.ck:hover{border-color:color-mix(in srgb,var(--acc) 45%,#fff)}
+.ck input{width:18px;height:18px;margin-top:2px;accent-color:var(--acc);flex:none;cursor:pointer}
+.ck b{font-size:13.8px;display:block;line-height:1.35}
+.ck span{font-size:12px;color:var(--mut);font-weight:600}
+.ck.checked{background:var(--accS);border-color:color-mix(in srgb,var(--acc) 40%,#fff)}
+.ck-bar{height:8px;border-radius:99px;background:var(--paper2);overflow:hidden;margin-top:14px}
+.ck-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--acc),color-mix(in srgb,var(--acc) 55%,var(--amber)));transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.ck-count{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accD)}
+/* ---------- TABS / PHASES ---------- */
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{padding:10px 17px;border-radius:99px;border:1.5px solid var(--line2);background:var(--card);font-weight:800;font-size:13.5px;color:var(--ink2);transition:.2s;display:inline-flex;gap:8px;align-items:center}
+.tab i{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--mut)}
+.tab:hover{border-color:var(--acc)}
+.tab.active{background:var(--acc);border-color:var(--acc);color:#fff;box-shadow:0 7px 18px color-mix(in srgb,var(--acc) 35%,transparent)}
+.tab.active i{color:rgba(255,255,255,.8)}
+.phase-panel{display:grid;grid-template-columns:250px 1fr;gap:26px;margin-top:20px;align-items:center}
+.phase-fig{background:linear-gradient(160deg,var(--accS),#fff 80%);border:1px solid var(--line);border-radius:16px;padding:12px;position:relative}
+.phase-fig svg{width:100%;height:auto;display:block}
+.phase-nav{position:absolute;bottom:10px;right:10px;display:flex;gap:6px}
+.phase-nav button{width:32px;height:32px;border-radius:10px;border:1.5px solid var(--line2);background:#fff;display:grid;place-items:center;color:var(--ink2)}
+.phase-nav button:hover{border-color:var(--acc);color:var(--accD)}
+.phase-info h4{font-size:18px;font-weight:800;margin-bottom:4px}
+.phase-cue{margin:6px 0 12px}
+.key{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.key li{display:flex;gap:9px;font-size:13.8px;font-weight:600;color:var(--ink2)}
+.key .ic{color:var(--accD);margin-top:3px;width:15px;height:15px}
+.errs{background:var(--redS);border:1px solid color-mix(in srgb,var(--red) 25%,#fff);border-radius:12px;padding:12px 14px}
+.errs b{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--redD);display:block;margin-bottom:6px}
+.errs li{list-style:none;display:flex;gap:8px;font-size:13px;font-weight:600;color:var(--ink2);margin-top:4px}
+.errs .ic{color:var(--red);width:14px;height:14px;margin-top:3px}
+/* ---------- SIMULATOR ---------- */
+.sim-card{padding:0;overflow:hidden}
+.sim-top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sim-top h3{margin:0}
+.sim-pred{text-align:right}
+.sim-pred b{font-family:var(--mono);font-size:24px;color:var(--accD);display:block;line-height:1.1}
+.sim-pred span{font-size:11px;font-weight:800;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+.sim-grid{display:grid;grid-template-columns:1fr 316px}
+.sim-stage{position:relative;background:linear-gradient(180deg,#FFFDF8,#FBF3E3)}
+#simCanvas{display:block;width:100%;height:390px}
+.sim-controls{border-left:1px solid var(--line);padding:18px;display:flex;flex-direction:column;gap:13px;background:var(--card)}
+.ctl label{display:flex;justify-content:space-between;align-items:center;font-size:12.3px;font-weight:800;color:var(--ink2);margin-bottom:5px}
+.ctl output{font-family:var(--mono);font-size:12.3px;font-weight:700;color:var(--accD)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:22px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:7px;border-radius:99px;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 55%,#fff),var(--accS))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:4px solid var(--acc);margin-top:-6.5px;box-shadow:0 3px 8px rgba(28,36,51,.25);transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type=range]::-moz-range-track{height:7px;border-radius:99px;background:linear-gradient(90deg,color-mix(in srgb,var(--acc) 55%,#fff),var(--accS))}
+input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#fff;border:4px solid var(--acc);box-shadow:0 3px 8px rgba(28,36,51,.25)}
+.sel{width:100%;padding:10px 12px;border-radius:11px;border:1.5px solid var(--line2);background:var(--card);font-weight:700;font-size:13.5px;color:var(--ink)}
+.sel:focus{border-color:var(--acc);outline:none}
+.switch{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;font-weight:700;color:var(--ink2)}
+.switch input{position:absolute;opacity:0;width:0}
+.sw-track{width:40px;height:22px;border-radius:99px;background:var(--line2);position:relative;transition:.2s;flex:none}
+.sw-track::after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 2px 5px rgba(0,0,0,.2)}
+.switch input:checked + .sw-track{background:var(--acc)}
+.switch input:checked + .sw-track::after{transform:translateX(18px)}
+.switch input:focus-visible + .sw-track{outline:3px solid var(--acc);outline-offset:2px}
+.sim-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+.sim-actions .btn-acc{grid-column:1/-1}
+.sim-history{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:14px 22px;border-top:1px solid var(--line);background:var(--card)}
+.sim-history .lbl{font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-right:4px}
+.h-chip{font-family:var(--mono);font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:99px;border:1.5px solid var(--line2);color:var(--ink2);background:var(--card)}
+.h-chip.g3{border-color:var(--amber);color:var(--amberD);background:var(--amberS)}
+.h-chip.g4{border-color:var(--blue);color:var(--blueD);background:var(--blueS)}
+.h-chip.g5{border-color:var(--green);color:var(--greenD);background:var(--greenS)}
+.h-chip.best{border-color:var(--gold);box-shadow:0 0 0 3px rgba(234,179,8,.18)}
+.sim-empty{font-size:12.5px;color:var(--mut);font-weight:600}
+/* ---------- TABLE ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{background:var(--accS);color:var(--accD);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:10px 12px;text-align:left}
+.tbl th:first-child{border-radius:10px 0 0 10px}
+.tbl th:last-child{border-radius:0 10px 10px 0}
+.tbl td{padding:11px 12px;border-bottom:1px solid var(--line);font-weight:700}
+.tbl td.mono{font-family:var(--mono)}
+.grade-b{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:9px;color:#fff;font-weight:800;font-size:13px}
+.gb3{background:var(--amber)}.gb4{background:var(--blue)}.gb5{background:var(--green)}
+.num-in{width:110px;padding:11px 12px;border-radius:11px;border:1.5px solid var(--line2);font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ink);background:var(--card)}
+.num-in:focus{border-color:var(--acc);outline:none}
+.num-in.bad{border-color:var(--red);background:var(--redS)}
+.res-chip{display:inline-flex;gap:8px;align-items:center;margin-top:12px;padding:9px 14px;border-radius:11px;background:var(--accS);color:var(--accD);font-weight:800;font-size:13.5px}
+/* ---------- COMMANDS ---------- */
+.cmds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cmd{position:relative;text-align:center;padding:20px 16px 18px;cursor:pointer;transition:.25s;border-width:1.5px}
+.cmd:hover{transform:translateY(-4px)}
+.cmd.active{border-color:var(--acc);box-shadow:0 14px 34px color-mix(in srgb,var(--acc) 26%,transparent);transform:translateY(-4px);background:linear-gradient(180deg,#fff,var(--accS))}
+.cmd-badge{position:absolute;top:12px;left:12px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--mut);border:1.5px solid var(--line2);border-radius:8px;padding:2px 8px}
+.cmd svg{width:148px;height:148px;margin:6px auto 4px;display:block}
+.cmd b{font-family:var(--disp);font-weight:700;font-size:15.5px;display:block;color:var(--accD)}
+.cmd p{font-size:12.6px;color:var(--ink2);font-weight:600;margin-top:7px;line-height:1.5}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.fact{padding:16px}
+.fact b{font-family:var(--mono);font-size:19px;color:var(--accD);display:block;margin-bottom:4px}
+.fact span{font-size:12.3px;color:var(--mut);font-weight:700;line-height:1.45;display:block}
+.diagram{margin-top:20px;padding:18px 20px 12px}
+.diagram svg{width:100%;height:auto;display:block}
+/* ---------- REACTION ---------- */
+.rt-grid{display:grid;grid-template-columns:1fr 300px;gap:22px;margin-top:20px}
+.rt-zone{border-radius:18px;min-height:262px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;user-select:none;-webkit-user-select:none;text-align:center;padding:24px;border:2px dashed var(--line2);background:var(--paper2);transition:background .18s,border-color .18s;touch-action:manipulation}
+.rt-zone .rt-big{font-family:var(--disp);font-weight:800;font-size:clamp(24px,4vw,40px);line-height:1.1}
+.rt-zone .rt-ms{font-family:var(--mono);font-weight:700;font-size:clamp(34px,5vw,52px);line-height:1}
+.rt-zone .rt-sub{font-size:13.5px;font-weight:700;opacity:.85;max-width:44ch}
+.rt-zone.st-ready{background:var(--amberS);border:2px solid var(--amber);color:var(--amberD)}
+.rt-zone.st-set{background:var(--blueS);border:2px solid var(--blue);color:var(--blueD)}
+.rt-zone.st-go{background:#22C55E;border:2px solid #16A34A;color:#fff}
+.rt-zone.st-result{background:var(--ink);border:2px solid var(--ink);color:#fff}
+.rt-zone.st-false{background:var(--redS);border:2px solid var(--red);color:var(--redD);animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.rt-side{display:flex;flex-direction:column;gap:12px}
+.rt-rules{font-size:12.6px;color:var(--ink2);font-weight:600;display:flex;flex-direction:column;gap:6px}
+.rt-rules li{list-style:none;display:flex;gap:8px}
+.rt-rules .ic{width:14px;height:14px;color:var(--accD);margin-top:3px}
+.rt-res{display:flex;flex-wrap:wrap;gap:7px}
+.rt-count{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--accD)}
+/* ---------- COOLDOWN ---------- */
+.cd-grid{display:grid;grid-template-columns:340px 1fr;gap:22px}
+.cd-timer{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.cd-ring-wrap{position:relative;width:172px;height:172px;margin:6px auto 4px}
+.cd-ring-wrap svg{width:100%;height:100%;transform:rotate(-90deg)}
+.cd-ring-bg{fill:none;stroke:var(--paper2);stroke-width:12}
+.cd-ring-fg{fill:none;stroke:var(--acc);stroke-width:12;stroke-linecap:round;stroke-dasharray:439.8;stroke-dashoffset:0;transition:stroke-dashoffset .25s linear}
+.cd-time{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cd-time b{font-family:var(--mono);font-size:34px;font-weight:700;line-height:1}
+.cd-time span{font-size:11px;font-weight:800;color:var(--mut);letter-spacing:.1em;margin-top:5px;text-transform:uppercase}
+.cd-name{font-weight:800;font-size:16.5px}
+.cd-desc{font-size:12.8px;color:var(--mut);font-weight:600;min-height:56px;max-width:32ch}
+.cd-btns{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;justify-content:center}
+.cd-total{width:100%;height:7px;border-radius:99px;background:var(--paper2);margin-top:14px;overflow:hidden}
+.cd-total i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--sky));border-radius:99px;transition:width .3s}
+.cd-steps{display:flex;flex-direction:column;gap:8px}
+.cd-step{display:flex;gap:13px;align-items:center;padding:10px 13px;border:1.5px solid var(--line);border-radius:13px;background:var(--card);cursor:pointer;transition:.2s;text-align:left;width:100%}
+.cd-step:hover{border-color:var(--acc)}
+.cd-step.active{border-color:var(--acc);background:var(--accS);box-shadow:0 6px 16px color-mix(in srgb,var(--acc) 18%,transparent)}
+.cd-step.done{opacity:.65}
+.cd-step.done .cd-sec{background:var(--greenS);color:var(--greenD);border-color:var(--green)}
+.cd-ico{width:42px;height:42px;flex:none;border-radius:12px;background:var(--paper2);display:grid;place-items:center;color:var(--ink2)}
+.cd-step.active .cd-ico{background:#fff;color:var(--accD)}
+.cd-ico svg{width:27px;height:27px}
+.cd-step b{font-size:13.6px;display:block;line-height:1.3}
+.cd-step span{font-size:11.8px;color:var(--mut);font-weight:600;display:block}
+.cd-sec{margin-left:auto;flex:none;font-family:var(--mono);font-size:11.5px;font-weight:700;border:1.5px solid var(--line2);border-radius:9px;padding:4px 8px;color:var(--mut)}
+.rf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:6px 0 12px}
+.rf-grid label{font-size:11.3px;font-weight:800;color:var(--ink2);display:block;margin-bottom:5px;line-height:1.35}
+.rf-grid .num-in{width:100%}
+.rf-out{margin-top:14px;border-radius:13px;padding:14px 16px;border:1.5px solid var(--line);background:var(--paper);display:none}
+.rf-out.show{display:block;animation:up .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.rf-out b{font-size:15px}
+.rf-out .rf-ir{font-family:var(--mono);font-size:26px;font-weight:700;display:block;margin:2px 0}
+.rf-out p{font-size:12.8px;font-weight:600;color:var(--ink2);margin-top:5px}
+.rf-form{font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:8px;display:block}
+/* ---------- QUIZ ---------- */
+.quiz-wrap{max-width:840px;margin:0 auto;position:relative}
+.q-top{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.q-count{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--accD)}
+.q-dots{display:flex;gap:6px;margin-left:auto}
+.q-dot{width:9px;height:9px;border-radius:50%;background:var(--line2);transition:.25s}
+.q-dot.done{background:var(--acc)}
+.q-dot.cur{box-shadow:0 0 0 3px var(--accS);background:var(--acc);transform:scale(1.2)}
+.q-text{font-size:18.5px;font-weight:800;line-height:1.4;margin-bottom:16px}
+.q-opts{display:grid;gap:10px}
+.opt{text-align:left;padding:14px 17px;border:1.5px solid var(--line2);border-radius:13px;background:var(--card);font-weight:700;font-size:14.3px;color:var(--ink);transition:.18s;display:flex;gap:11px;align-items:center}
+.opt i{font-family:var(--mono);font-style:normal;font-size:11.5px;color:var(--mut);border:1.5px solid var(--line2);border-radius:8px;width:24px;height:24px;display:grid;place-items:center;flex:none}
+.opt:hover:not([disabled]){border-color:var(--acc);background:var(--accS);transform:translateX(4px)}
+.opt.good{border-color:var(--green);background:var(--greenS);color:var(--greenD)}
+.opt.good i{border-color:var(--green);color:var(--greenD)}
+.opt.bad{border-color:var(--red);background:var(--redS);color:var(--redD)}
+.opt.bad i{border-color:var(--red);color:var(--redD)}
+.opt[disabled]{cursor:default}
+.q-explain{display:none;margin-top:16px}
+.q-explain.show{display:flex;animation:up .35s}
+.q-foot{display:flex;justify-content:flex-end;margin-top:16px}
+.q-next{display:none}
+.q-next.show{display:inline-flex}
+.q-res-top{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.q-ring{position:relative;width:150px;height:150px;flex:none}
+.q-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.q-ring .cd-ring-fg{stroke:var(--violet);transition:stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)}
+.q-ring-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.q-ring-c b{font-family:var(--disp);font-weight:900;font-size:30px}
+.q-ring-c span{font-size:11px;font-weight:800;color:var(--mut)}
+.q-verdict b{font-size:19px;display:block}
+.q-verdict p{font-size:13.5px;color:var(--ink2);font-weight:600;margin-top:6px;max-width:46ch}
+.q-review{margin-top:20px;max-height:264px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding-right:6px}
+.q-rev{display:flex;gap:11px;padding:11px 13px;border:1.5px solid var(--line);border-radius:12px;font-size:12.8px;font-weight:600;color:var(--ink2);background:var(--card)}
+.q-rev .ic{flex:none;margin-top:2px;width:16px;height:16px}
+.q-rev.ok .ic{color:var(--green)}
+.q-rev.no{border-color:color-mix(in srgb,var(--red) 30%,#fff);background:var(--redS)}
+.q-rev.no .ic{color:var(--red)}
+.q-rev b{color:var(--ink);display:block;font-size:13px}
+.q-rev em{font-style:normal;color:var(--greenD);font-weight:700}
+.q-intro-rules{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px}
+/* ---------- HOMEWORK ---------- */
+.hw-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.hw-badge{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.12em;padding:6px 12px;border-radius:99px;text-transform:uppercase;box-shadow:0 6px 16px rgba(225,29,72,.3)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.hw-side{display:flex;flex-direction:column;gap:22px}
+.hw-list{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:6px}
+.hw-list li{display:flex;gap:10px;font-size:13.6px;font-weight:600;color:var(--ink2)}
+.hw-list .ic{color:var(--accD);margin-top:3px;width:15px;height:15px}
+.builder{margin-top:26px}
+.builder-grid{display:grid;grid-template-columns:352px 1fr;gap:22px;align-items:start;margin-top:18px}
+.b-controls{display:flex;flex-direction:column;gap:14px}
+.b-field label{display:block;font-size:12px;font-weight:800;color:var(--ink2);margin-bottom:6px}
+.txt-in{width:100%;padding:11px 13px;border-radius:11px;border:1.5px solid var(--line2);font-weight:700;font-size:13.8px;color:var(--ink);background:var(--card)}
+.txt-in:focus{border-color:var(--acc);outline:none}
+.swatches{display:flex;gap:10px}
+.swatch{width:34px;height:34px;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:.2s;box-shadow:inset 0 0 0 2px #fff}
+.swatch:hover{transform:scale(1.12)}
+.swatch.sel{border-color:var(--ink);transform:scale(1.12)}
+.b-toggles{display:flex;flex-direction:column;gap:9px}
+.b-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.b-actions .btn-acc{grid-column:1/-1}
+.b-preview{position:sticky;top:calc(var(--navH) + 18px)}
+.b-frame{background:var(--paper2);border:1px solid var(--line);border-radius:16px;padding:14px}
+.b-frame svg{width:100%;height:auto;display:block;border-radius:12px;box-shadow:0 10px 30px rgba(28,36,51,.14)}
+.b-hint{font-size:11.8px;color:var(--mut);font-weight:600;margin-top:10px;display:flex;gap:7px;align-items:center}
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:#E9EDF5;padding:52px 0 34px;position:relative;margin-top:30px}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--amber),var(--green),var(--sky),var(--violet))}
+.foot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start}
+.foot-grid h3{font-family:var(--disp);font-weight:700;font-size:19px;margin-bottom:10px}
+.foot-grid p{font-size:13.5px;color:#AAB4C8;font-weight:600;max-width:56ch}
+.foot-prog{display:flex;align-items:center;gap:12px;margin-top:18px;flex-wrap:wrap}
+.foot-prog .fp{font-family:var(--mono);font-weight:700;font-size:14px;color:#FFC96B}
+.teacher{background:#232D40;border:1px solid #35415A;border-radius:16px;padding:18px 20px;display:flex;gap:14px;align-items:center}
+.t-ava{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--sky),var(--violet));display:grid;place-items:center;font-family:var(--disp);font-weight:700;color:#fff;font-size:17px;flex:none}
+.teacher b{display:block;font-size:15px}
+.teacher span{font-size:12.3px;color:#AAB4C8;font-weight:600;display:block;margin-top:2px}
+.teacher a{color:#7DD3FC;font-size:12.5px;font-weight:700;text-decoration:none}
+.foot-bottom{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:34px;padding-top:20px;border-top:1px solid #35415A;font-size:12px;color:#8B96AC;font-weight:600;flex-wrap:wrap}
+.btn-reset{background:transparent;border:1.5px solid #4A5670;color:#C6CFDF;padding:9px 15px;border-radius:11px;font-weight:700;font-size:12.5px;display:inline-flex;gap:8px;align-items:center;transition:.2s}
+.btn-reset:hover{border-color:var(--red);color:#FDA4AF}
+/* ---------- TOASTS / TO-TOP / CONFETTI ---------- */
+#toasts{position:fixed;left:22px;bottom:22px;z-index:200;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 44px))}
+.toast{display:flex;gap:11px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:13px;padding:12px 15px;box-shadow:0 14px 34px rgba(28,36,51,.2);font-size:13.3px;font-weight:700;color:var(--ink);animation:tin .35s cubic-bezier(.2,.7,.2,1)}
+.toast.out{opacity:0;transform:translateY(8px);transition:.3s}
+@keyframes tin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.toast i{width:9px;height:9px;border-radius:50%;flex:none;background:var(--blue)}
+.toast.t-good{border-left-color:var(--green)}.toast.t-good i{background:var(--green)}
+.toast.t-warn{border-left-color:var(--amber)}.toast.t-warn i{background:var(--amber)}
+.toast.t-err{border-left-color:var(--red)}.toast.t-err i{background:var(--red)}
+.toast button{margin-left:auto;background:var(--paper2);border:none;border-radius:9px;padding:6px 11px;font-weight:800;font-size:12px;color:var(--orangeD);flex:none}
+#toTop{position:fixed;right:22px;bottom:22px;width:47px;height:47px;border-radius:50%;background:var(--ink);color:#fff;border:none;display:grid;place-items:center;box-shadow:0 12px 28px rgba(28,36,51,.3);opacity:0;pointer-events:none;transition:.3s;z-index:150}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{background:var(--orange);transform:translateY(-3px)}
+.confetti{position:fixed;width:9px;height:13px;z-index:300;pointer-events:none;border-radius:2px}
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .poster{max-width:560px;margin:0 auto}
+  .goals{grid-template-columns:1fr 1fr}
+  .grid-2,.grid-2w,.rt-grid,.cd-grid,.hw-grid,.builder-grid{grid-template-columns:1fr}
+  .sim-grid{grid-template-columns:1fr}
+  .sim-controls{border-left:none;border-top:1px solid var(--line)}
+  .facts{grid-template-columns:1fr 1fr}
+  .b-preview{position:static;order:-1}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .nav-links{position:absolute;top:var(--navH);left:0;right:0;background:var(--card);border-bottom:1px solid var(--line);flex-direction:column;padding:12px 20px 16px;display:none;box-shadow:0 22px 34px rgba(28,36,51,.14)}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 14px;font-size:15px}
+  #burger{display:grid}
+  .prog-chip span{display:none}
+}
+@media (max-width:760px){
+  section{padding:56px 0}
+  .goals{grid-template-columns:1fr}
+  .cmds{grid-template-columns:1fr}
+  .cmd svg{width:132px;height:132px}
+  .phase-panel{grid-template-columns:1fr}
+  .phase-fig{max-width:280px;margin:0 auto}
+  #simCanvas{height:300px}
+  .sec-num{font-size:42px}
+  .sec-meta{margin-left:0;width:100%}
+  .rf-grid{grid-template-columns:1fr 1fr 1fr}
+  .hero{padding-top:calc(var(--navH) + 34px)}
+  .fc2{left:0}
+  .float-card{padding:9px 12px;font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="navBar">
+  <div class="nav-in">
+    <a class="logo" href="#top" aria-label="На початок сторінки">
+      <span class="logo-b"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 9h9l9-4v5.5L12.6 13A5.5 5.5 0 1 1 3 9.6V9zm5.5 8A2.5 2.5 0 1 0 6 14.5 2.5 2.5 0 0 0 8.5 17z"/></svg></span>
+      <span class="logo-t"><b>ФК · ОНЛАЙН</b><span>медичний фаховий коледж</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Розділи заняття">
+      <a href="#warmup" data-spy="warmup">Розминка</a>
+      <a href="#jump" data-spy="jump">Стрибок</a>
+      <a href="#start" data-spy="start">Старт і розбіг</a>
+      <a href="#cooldown" data-spy="cooldown">Заминка</a>
+      <a href="#quiz" data-spy="quiz">Тест</a>
+      <a href="#homework" data-spy="homework">Д/З</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="soundBtn" aria-pressed="true" title="Вимкнути звук" aria-label="Звук: увімкнено"><span class="ic" id="soundIco"></span></button>
+      <div class="prog-chip" title="Виконані етапи заняття"><span class="prog-dot"></span><b id="progCount">0</b>/6 <span>етапів</span></div>
+      <button class="icon-btn" id="burger" aria-expanded="false" aria-label="Меню"><span class="ic" data-icon="menu"></span></button>
+    </div>
+  </div>
+  <div id="navProg"><i id="navProgFill"></i></div>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="blob" style="width:480px;height:480px;top:-120px;right:-100px;background:radial-gradient(circle,rgba(244,81,30,.34),transparent 68%)"></div>
+  <div class="blob" style="width:420px;height:420px;top:220px;left:-160px;background:radial-gradient(circle,rgba(14,165,233,.26),transparent 68%);animation-delay:-8s"></div>
+  <div class="blob" style="width:340px;height:340px;bottom:-90px;right:26%;background:radial-gradient(circle,rgba(245,159,10,.3),transparent 68%);animation-delay:-14s"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow rv"><i></i>Онлайн-заняття №14 · фізична культура · 2 курс</span>
+        <h1 class="rv" style="--d:.08s">Удосконалення <span class="grad-o">стрибка у довжину</span> з місця
+          <span class="l2">та <span class="grad-b">старту й стартового розбігу</span></span>
+        </h1>
+        <p class="lead rv" style="--d:.16s">Працюємо над технікою легкоатлетичних вправ удома: розбираємо фази стрибка, тренуємо реакцію на стартові команди та вчимося контролювати власний стан за ЧСС — як майбутні медики.</p>
+        <div class="meta-row rv" style="--d:.22s">
+          <span class="chip chip-acc"><span class="ic" data-icon="clock"></span>45 хвилин</span>
+          <span class="chip"><span class="ic" data-icon="cap"></span>група 2-М1</span>
+          <span class="chip"><span class="ic" data-icon="home"></span>онлайн-формат</span>
+          <span class="chip"><span class="ic" data-icon="calendar"></span>тиждень 23–28.11.2026</span>
+        </div>
+        <p class="equip rv" style="--d:.28s"><span class="ic" data-icon="tape"></span><span><b>Знадобиться:</b> гімнастичний килимок · рулетка або мірна стрічка · секундомір (телефон) · 2–3 м вільного неслизького простору · спортивна форма та вода.</span></p>
+        <div class="hero-cta rv" style="--d:.34s">
+          <a class="btn btn-acc" href="#warmup">Почати заняття <span class="ic" data-icon="arrowR"></span></a>
+          <a class="btn btn-ghost" href="#quiz">Одразу до тесту</a>
+        </div>
+        <div class="route rv" style="--d:.4s">
+          <div class="route-t">Маршрут заняття — виконуй послідовно</div>
+          <div class="route-track" id="routeTrack"></div>
+        </div>
+      </div>
+      <div class="poster rv" style="--d:.2s" id="posterWrap">
+        <svg viewBox="0 0 560 440" role="img" aria-label="Ілюстрація: спортсмен у польоті над мірною стрічкою">
+          <defs>
+            <linearGradient id="pgSun" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F59F0A"/><stop offset="1" stop-color="#F4511E"/></linearGradient>
+            <filter id="pgSh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#1C2433" flood-opacity=".18"/></filter>
+          </defs>
+          <circle cx="468" cy="82" r="58" fill="url(#pgSun)" opacity=".92"/>
+          <circle cx="468" cy="82" r="80" fill="none" stroke="#F59F0A" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 8"/>
+          <path d="M-40 470 A 300 300 0 0 1 260 170" fill="none" stroke="#F4511E" stroke-opacity=".10" stroke-width="34"/>
+          <path d="M-40 470 A 250 250 0 0 1 210 220" fill="none" stroke="#F59F0A" stroke-opacity=".13" stroke-width="30"/>
+          <path d="M-40 470 A 200 200 0 0 1 160 270" fill="none" stroke="#0EA5E9" stroke-opacity=".10" stroke-width="26"/>
+          <path d="M120 96l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#F59F0A"/>
+          <path d="M510 190l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#0EA5E9"/>
+          <rect x="40" y="330" width="480" height="26" rx="9" fill="#fff" stroke="#E8E0D0"/>
+          <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#6C7486" font-weight="700">
+            <line x1="70" y1="330" x2="70" y2="342" stroke="#D8CEBB"/><text x="66" y="352">0</text>
+            <line x1="143" y1="330" x2="143" y2="342" stroke="#D8CEBB"/><text x="132" y="352">50</text>
+            <line x1="216" y1="330" x2="216" y2="342" stroke="#D8CEBB"/><text x="204" y="352">100</text>
+            <line x1="290" y1="330" x2="290" y2="342" stroke="#D8CEBB"/><text x="278" y="352">150</text>
+            <line x1="363" y1="330" x2="363" y2="342" stroke="#D8CEBB"/><text x="351" y="352">200</text>
+            <line x1="436" y1="330" x2="436" y2="342" stroke="#D8CEBB"/><text x="424" y="352">250</text>
+            <text x="486" y="352">см</text>
+          </g>
+          <line x1="70" y1="240" x2="70" y2="330" stroke="#1C2433" stroke-width="3" stroke-dasharray="5 5" opacity=".55"/>
+          <path d="M78 322 Q 250 118 428 318" fill="none" stroke="#F4511E" stroke-width="3" stroke-dasharray="9 8" stroke-linecap="round"/>
+          <g filter="url(#pgSh)"><g transform="translate(150,102) scale(1.38)" id="heroAth"></g></g>
+          <g stroke="#0EA5E9" stroke-width="4" stroke-linecap="round" opacity=".6"><line x1="150" y1="210" x2="176" y2="204"/><line x1="142" y1="232" x2="172" y2="228"/><line x1="152" y1="254" x2="178" y2="252"/></g>
+          <line x1="430" y1="330" x2="430" y2="268" stroke="#1C2433" stroke-width="3"/>
+          <path d="M430 268h56l-10 12 10 12h-56z" fill="#3E9B4F"/>
+          <text x="440" y="285" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#fff">230 см</text>
+        </svg>
+        <div class="float-card fc1"><span class="ic" data-icon="target"></span><span>Кут вильоту 38–45°<small>раціональний діапазон</small></span></div>
+        <div class="float-card fc2"><span class="ic" data-icon="bolt"></span><span>Реакція 120–160 мс<small>рівень тренованих спринтерів</small></span></div>
+      </div>
+    </div>
+    <div class="goals">
+      <div class="card goal rv"><span class="gi" style="background:linear-gradient(135deg,#F4511E,#F59F0A)"><span class="ic ic-lg" data-icon="target"></span></span><div><b>Техніка стрибка</b><p>Удосконалити узгодження маху руками з поштовхом, групування в польоті та м’яке приземлення на обидві ноги.</p></div></div>
+      <div class="card goal rv" style="--d:.1s"><span class="gi" style="background:linear-gradient(135deg,#2563EB,#0EA5E9)"><span class="ic ic-lg" data-icon="bolt"></span></span><div><b>Старт і розбіг</b><p>Закріпити положення за командами «На старт!», «Увага!», «Руш!» та поступове випрямлення тулуба на розбігу.</p></div></div>
+      <div class="card goal rv" style="--d:.2s"><span class="gi" style="background:linear-gradient(135deg,#0D9488,#3E9B4F)"><span class="ic ic-lg" data-icon="heart"></span></span><div><b>Самоконтроль</b><p>Навчитися оцінювати реакцію серцево-судинної системи за ЧСС та пробою Руф’є — професійна навичка медика.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 01 WARMUP ================= -->
+<section id="warmup" style="--acc:var(--amber);--accD:var(--amberD);--accS:var(--amberS)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">01</span>
+      <div class="sec-title"><h2>Розминка</h2><p>Підготовча частина: розігрій м’язи та зв’язки, підніми ЧСС до 110–130 уд/хв. Без розминки до стрибків не допускаємо — це профілактика травм.</p></div>
+      <div class="sec-meta"><span class="chip"><span class="ic" data-icon="clock"></span>7 хвилин</span><span class="status" data-status="warmup">очікує</span></div>
+    </div>
+    <div class="grid-2w">
+      <div class="card rv">
+        <h3><span class="ic" data-icon="video"></span>Відео-приклад розминки</h3>
+        <div class="yt" id="ytWarm" data-id="ml6cT4AZdqI" data-mark="warmup" role="button" tabindex="0" aria-label="Відтворити відео-приклад розминки">
+          <img src="https://i.ytimg.com/vi/ml6cT4AZdqI/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <button class="yt-play" aria-hidden="true"><span class="ic ic-lg" data-icon="play"></span></button>
+          <div class="yt-label">30-Minute HIIT Cardio Workout with Warm Up · SELF<small>Використай перші 6–7 хвилин як приклад загальної розминки. Відео англомовне — орієнтуйся на показ вправ.</small></div>
+        </div>
+        <div class="yt-links">
+          <a href="https://www.youtube.com/watch?v=ml6cT4AZdqI" target="_blank" rel="noopener"><span class="ic" data-icon="play"></span>Дивитись на YouTube ↗</a>
+          <a href="https://www.youtube.com/results?search_query=%D1%80%D0%BE%D0%B7%D0%BC%D0%B8%D0%BD%D0%BA%D0%B0+%D0%BF%D0%B5%D1%80%D0%B5%D0%B4+%D1%81%D1%82%D1%80%D0%B8%D0%B1%D0%BA%D0%B0%D0%BC%D0%B8" target="_blank" rel="noopener"><span class="ic" data-icon="video"></span>Більше прикладів українською ↗</a>
+        </div>
+      </div>
+      <div class="card rv" style="--d:.1s">
+        <h3><span class="ic" data-icon="check"></span>Комплекс ЗРВ — відмічай виконане <span class="ck-count" id="warmCount" style="margin-left:auto">0/8</span></h3>
+        <div class="ck-list" id="warmCk"></div>
+        <div class="ck-bar"><i id="warmBar"></i></div>
+      </div>
+    </div>
+    <div class="note rv" style="margin-top:20px"><span class="ic" data-icon="info"></span><span><b>Безпека:</b> розминайся на неслизькій поверхні, у взутті з амортизацією. Дихання не затримуй. За запаморочення або болю — припини вправу та відпочинь. Якщо після розминки ЧСС &gt; 140 уд/хв — знизь темп.</span></div>
+  </div>
+</section>
+
+<!-- ================= 02 JUMP ================= -->
+<section id="jump" style="--acc:var(--orange);--accD:var(--orangeD);--accS:var(--orangeS)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">02</span>
+      <div class="sec-title"><h2>Стрибок у довжину з місця</h2><p>Основна частина А: чотири фази техніки, типові помилки та віртуальний симулятор, де кожен параметр одразу змінює результат.</p></div>
+      <div class="sec-meta"><span class="chip"><span class="ic" data-icon="clock"></span>12 хвилин</span><span class="status" data-status="jump">очікує</span></div>
+    </div>
+
+    <div class="card rv">
+      <div class="tabs" id="phaseTabs" role="tablist" aria-label="Фази стрибка"></div>
+      <div class="phase-panel">
+        <div class="phase-fig"><svg viewBox="0 0 200 200" id="phaseFig" role="img" aria-label="Схема фази стрибка"></svg>
+          <div class="phase-nav"><button id="phasePrev" aria-label="Попередня фаза"><span class="ic" data-icon="arrowL"></span></button><button id="phaseNext" aria-label="Наступна фаза"><span class="ic" data-icon="arrowR"></span></button></div>
+        </div>
+        <div class="phase-info" id="phaseInfo"></div>
+      </div>
+    </div>
+
+    <div class="card sim-card rv" style="margin-top:22px">
+      <div class="sim-top">
+        <h3><span class="ic" data-icon="target"></span>Симулятор стрибка — керуй технікою</h3>
+        <div class="sim-pred"><span>Прогноз результату</span><b id="predOut">≈ 233 см</b></div>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-stage" id="simStage"><canvas id="simCanvas"></canvas></div>
+        <div class="sim-controls">
+          <div class="ctl"><label for="ctlAngle">Кут вильоту <output id="oAngle">42°</output></label><input type="range" id="ctlAngle" min="20" max="55" step="1" value="42"></div>
+          <div class="ctl"><label for="ctlV">Швидкість вильоту <output id="oV">4.60 м/с</output></label><input type="range" id="ctlV" min="3" max="6" step="0.05" value="4.6"></div>
+          <div class="ctl"><label for="ctlSquat">Глибина підсідання <output id="oSquat">78%</output></label><input type="range" id="ctlSquat" min="40" max="100" step="1" value="78"></div>
+          <div class="ctl"><label for="ctlSwing">Активність маху руками <output id="oSwing">80%</output></label><input type="range" id="ctlSwing" min="0" max="100" step="5" value="80"></div>
+          <div class="ctl"><label for="ctlSpeed">Швидкість анімації <output id="oSpeed">1×</output></label><input type="range" id="ctlSpeed" min="0.5" max="2" step="0.25" value="1"></div>
+          <div class="ctl"><label for="sexSel">Нормативи</label><select class="sel" id="sexSel"><option value="m">Юнаки · 190 / 210 / 230 см</option><option value="f">Дівчата · 150 / 170 / 190 см</option></select></div>
+          <label class="switch"><input type="checkbox" id="tglTraj" checked><span class="sw-track"></span>Показувати траєкторію</label>
+          <label class="switch"><input type="checkbox" id="tglGrid" checked><span class="sw-track"></span>Сітка та розмітка</label>
+          <div class="sim-actions">
+            <button class="btn btn-acc" id="btnJump"><span class="ic" data-icon="bolt"></span>Стрибнути!</button>
+            <button class="btn btn-ghost btn-sm" id="btnRand"><span class="ic" data-icon="dice"></span>Випадково</button>
+            <button class="btn btn-ghost btn-sm" id="btnReset"><span class="ic" data-icon="reset"></span>Скинути</button>
+            <button class="btn btn-ink btn-sm" id="btnPng" style="grid-column:1/-1"><span class="ic" data-icon="download"></span>Зберегти кадр PNG</button>
+          </div>
+        </div>
+      </div>
+      <div class="sim-history"><span class="lbl">Спроби:</span><span class="sim-empty" id="simEmpty">ще немає — тисни «Стрибнути!»</span><span id="simHistory" style="display:contents"></span><span class="h-chip best" id="bestOut" style="display:none"></span></div>
+    </div>
+
+    <div class="grid-2" style="margin-top:22px">
+      <div class="card rv">
+        <h3><span class="ic" data-icon="flag"></span>Орієнтовні нормативи (ЗФПО)</h3>
+        <table class="tbl">
+          <thead><tr><th>Стать</th><th><span class="grade-b gb3">3</span></th><th><span class="grade-b gb4">4</span></th><th><span class="grade-b gb5">5</span></th></tr></thead>
+          <tbody>
+            <tr><td>Юнаки</td><td class="mono">190 см</td><td class="mono">210 см</td><td class="mono">230 см</td></tr>
+            <tr><td>Дівчата</td><td class="mono">150 см</td><td class="mono">170 см</td><td class="mono">190 см</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12.3px;color:var(--mut);font-weight:600;margin-top:12px">Значення орієнтовні — точні вимоги твоєї групи уточни у викладача. Активний мах руками додає до результату 10–15%.</p>
+        <div class="yt-links"><a href="https://www.youtube.com/results?search_query=%D1%81%D1%82%D1%80%D0%B8%D0%B1%D0%BE%D0%BA+%D1%83+%D0%B4%D0%BE%D0%B2%D0%B6%D0%B8%D0%BD%D1%83+%D0%B7+%D0%BC%D1%96%D1%81%D1%86%D1%8F+%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0" target="_blank" rel="noopener"><span class="ic" data-icon="video"></span>Приклади техніки на YouTube ↗</a></div>
+      </div>
+      <div class="card rv" style="--d:.1s">
+        <h3><span class="ic" data-icon="tape"></span>Практична спроба вдома</h3>
+        <p style="font-size:13.8px;color:var(--ink2);font-weight:600">Виконай <b>5 залікових спроб</b> на килимку. Вимірюй рулеткою від лінії поштовху до <b>найближчого сліду</b> будь-якої частини тіла. Найкращий результат запиши сюди:</p>
+        <div style="display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap">
+          <input class="num-in" id="realIn" type="number" min="80" max="350" inputmode="numeric" placeholder="см" aria-label="Мій результат у сантиметрах">
+          <button class="btn btn-acc btn-sm" id="realSave"><span class="ic" data-icon="check"></span>Записати</button>
+        </div>
+        <div id="realOut"></div>
+        <div class="note" style="margin-top:16px"><span class="ic" data-icon="heart"></span><span>Після серії перевір пульс за 15 с × 4. Для студентів основної групи прийнятно до <b>140–150 уд/хв</b>; відновлення — за 3–5 хв.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 START ================= -->
+<section id="start" style="--acc:var(--blue);--accD:var(--blueD);--accS:var(--blueS)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">03</span>
+      <div class="sec-title"><h2>Старт і стартовий розбіг</h2><p>Основна частина Б: низький старт за командами, положення тіла та перші 15–30 метрів прискорення. Плюс — тренер твоєї реакції.</p></div>
+      <div class="sec-meta"><span class="chip"><span class="ic" data-icon="clock"></span>8 хвилин</span><span class="status" data-status="start">очікує</span></div>
+    </div>
+
+    <div class="cmds" id="cmdCards">
+      <div class="card cmd rv" data-cmd="0" role="button" tabindex="0"><span class="cmd-badge">1</span><svg viewBox="0 0 200 200" data-pose="onStart"></svg><b>«На старт!»</b><p>Руки біля лінії на ширині плечей, коліно задньої ноги на доріжці, стопи в колодках. Спина рівна, погляд униз-вперед.</p></div>
+      <div class="card cmd rv" style="--d:.1s" data-cmd="1" role="button" tabindex="0"><span class="cmd-badge">2</span><svg viewBox="0 0 200 200" data-pose="attention"></svg><b>«Увага!»</b><p>Таз піднімаємо на 10–20 см вище плечей, вага — на руки й передню ногу. Кут передньої ноги ≈ 90–100°, задньої ≈ 110–130°.</p></div>
+      <div class="card cmd rv" style="--d:.2s" data-cmd="2" role="button" tabindex="0"><span class="cmd-badge">3</span><svg viewBox="0 0 200 200" data-pose="go"></svg><b>«Руш!»</b><p>Вибуховий поштовх обома ногами, потужний мах руками. Тулуб під кутом ≈ 45°, перші кроки короткі й часті — без «вистрибування» вгору.</p></div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap" class="rv">
+      <button class="btn btn-acc" id="cmdPlay"><span class="ic" data-icon="play"></span>Програти команди зі свистком</button>
+      <a class="btn btn-ghost" href="https://www.youtube.com/results?search_query=%D0%BD%D0%B8%D0%B7%D1%8C%D0%BA%D0%B8%D0%B9+%D1%81%D1%82%D0%B0%D1%80%D1%82+%D1%82%D0%B5%D1%85%D0%BD%D1%96%D0%BA%D0%B0+%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F" target="_blank" rel="noopener"><span class="ic" data-icon="video"></span>Приклад низького старту ↗</a>
+    </div>
+
+    <div class="facts">
+      <div class="card fact rv"><b>1–1.5 стопи</b><span>від лінії до передньої колодки; задня — ще через 1–1.5 стопи</span></div>
+      <div class="card fact rv" style="--d:.07s"><b>+10–20 см</b><span>таз вище плечей у положенні «Увага!»</span></div>
+      <div class="card fact rv" style="--d:.14s"><b>15–30 м</b><span>довжина стартового розбігу до повного випрямлення тулуба</span></div>
+      <div class="card fact rv" style="--d:.21s"><b>&lt; 0.100 с</b><span>реакція, швидша за цю межу, — фальстарт (правило World Athletics)</span></div>
+    </div>
+
+    <div class="card diagram rv">
+      <h3><span class="ic" data-icon="wind"></span>Стартовий розбіг: нахил тулуба зменшується поступово</h3>
+      <svg viewBox="0 0 760 250" role="img" aria-label="Схема стартового розбігу: три положення бігуна">
+        <line x1="20" y1="200" x2="740" y2="200" stroke="#D8CEBB" stroke-width="2.5"/>
+        <g fill="#1C2433" opacity=".8"><path d="M52 196l16-10 4 6-16 10z"/><path d="M30 196l16-10 4 6-16 10z"/></g>
+        <line x1="78" y1="120" x2="78" y2="200" stroke="#1C2433" stroke-width="2.5" stroke-dasharray="5 5" opacity=".5"/>
+        <path d="M150 108 Q 400 66 640 88" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-dasharray="8 7"/>
+        <g transform="translate(60,30)" data-pose-g="go"></g>
+        <g transform="translate(300,30)" data-pose-g="sprint"></g>
+        <g transform="translate(545,30)" data-pose-g="runTall"></g>
+        <g font-family="'Manrope',sans-serif" font-weight="800" font-size="13">
+          <rect x="118" y="46" width="66" height="24" rx="8" fill="#E7EEFE"/><text x="131" y="63" fill="#1E4FC2">≈ 45°</text>
+          <rect x="368" y="30" width="84" height="24" rx="8" fill="#E7EEFE"/><text x="380" y="47" fill="#1E4FC2">60–70°</text>
+          <rect x="612" y="18" width="84" height="24" rx="8" fill="#E7EEFE"/><text x="624" y="35" fill="#1E4FC2">80–90°</text>
+        </g>
+        <g stroke="#2563EB" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M236 150h34m-8-7 8 7-8 7"/><path d="M480 150h34m-8-7 8 7-8 7"/></g>
+        <g font-family="'JetBrains Mono',monospace" font-size="12" font-weight="700" fill="#6C7486">
+          <text x="88" y="222">0 м</text><text x="330" y="222">10–15 м</text><text x="580" y="222">25–30 м</text>
+        </g>
+        <g font-family="'Manrope',sans-serif" font-size="11.5" font-weight="700" fill="#414B5E">
+          <text x="70" y="240">поштовх із колодок</text><text x="300" y="240">потужні кроки, нахил тане</text><text x="540" y="240">перехід у дистанційний біг</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="rt-grid">
+      <div class="rt-zone rv" id="rtZone" role="button" tabindex="0" aria-label="Зона реакції: тисни на сигнал Руш"></div>
+      <div class="card rt-side rv" style="--d:.1s">
+        <h3 style="margin-bottom:2px"><span class="ic" data-icon="bolt"></span>Тренер реакції</h3>
+        <ul class="rt-rules">
+          <li><span class="ic" data-icon="check"></span>Тисни на зону (або пробіл) лише після сигналу «РУШ!».</li>
+          <li><span class="ic" data-icon="x"></span>Рано — фальстарт. Швидше 100 мс — теж фальстарт за правилами.</li>
+          <li><span class="ic" data-icon="flag"></span>Зарахуй 3 спроби, щоб завершити етап. Орієнтир: новачок 200–300 мс.</li>
+        </ul>
+        <div class="rt-count" id="rtCount">Зараховано: 0/3</div>
+        <div class="rt-res" id="rtResults"></div>
+        <div class="h-chip best" id="rtBest" style="display:none;align-self:flex-start"></div>
+        <div style="display:flex;gap:8px;margin-top:auto;flex-wrap:wrap">
+          <button class="btn btn-acc btn-sm" id="rtStart"><span class="ic" data-icon="play"></span>Почати спробу</button>
+          <button class="btn btn-ghost btn-sm" id="rtReset"><span class="ic" data-icon="reset"></span>Скинути</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="errs rv" style="margin-top:20px">
+      <b>Типові помилки старту та розбігу</b>
+      <ul>
+        <li><span class="ic" data-icon="x"></span>Миттєве випрямлення тулуба одразу після поштовху — втрачається прискорення.</li>
+        <li><span class="ic" data-icon="x"></span>Погляд угору замість у доріжку; занадто широкий перший крок «на п’яту».</li>
+        <li><span class="ic" data-icon="x"></span>Таз занадто високо на «Увага!» — вага повністю на руках, поштовх слабшає.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 COOLDOWN ================= -->
+<section id="cooldown" style="--acc:var(--teal);--accD:var(--tealD);--accS:var(--tealS)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">04</span>
+      <div class="sec-title"><h2>Заминка</h2><p>Завершальна частина фізичного навантаження: 6 вправ по 30 секунд. Плавно знижуємо ЧСС і розтягуємо працюючі м’язи.</p></div>
+      <div class="sec-meta"><span class="chip"><span class="ic" data-icon="clock"></span>6 хвилин</span><span class="status" data-status="cool">очікує</span></div>
+    </div>
+    <div class="cd-grid">
+      <div class="card cd-timer rv">
+        <div class="cd-ring-wrap">
+          <svg viewBox="0 0 170 170"><circle class="cd-ring-bg" cx="85" cy="85" r="70"/><circle class="cd-ring-fg" id="cdRing" cx="85" cy="85" r="70"/></svg>
+          <div class="cd-time"><b id="cdTime">00:30</b><span id="cdStepNo">крок 1/6</span></div>
+        </div>
+        <div class="cd-name" id="cdName">Ходьба та дихання</div>
+        <div class="cd-desc" id="cdDesc"></div>
+        <div class="cd-btns">
+          <button class="btn btn-acc btn-sm" id="cdPlay"><span class="ic" data-icon="play"></span><span id="cdPlayTxt">Старт</span></button>
+          <button class="btn btn-ghost btn-sm" id="cdNext"><span class="ic" data-icon="next"></span>Далі</button>
+          <button class="btn btn-ghost btn-sm" id="cdReset"><span class="ic" data-icon="reset"></span></button>
+        </div>
+        <div class="cd-total"><i id="cdTotal"></i></div>
+      </div>
+      <div class="cd-steps rv" style="--d:.1s" id="cdSteps"></div>
+    </div>
+    <div class="grid-2" style="margin-top:22px">
+      <div class="card rv">
+        <h3><span class="ic" data-icon="video"></span>Відео-приклад м’якої заминки</h3>
+        <div class="yt" id="ytCool" data-id="v7AYKMP6rOE" role="button" tabindex="0" aria-label="Відтворити відео-приклад заминки">
+          <img src="https://i.ytimg.com/vi/v7AYKMP6rOE/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <button class="yt-play" aria-hidden="true"><span class="ic ic-lg" data-icon="play"></span></button>
+          <div class="yt-label">Yoga For Complete Beginners · Yoga With Adriene<small>Приклад спокійної розтяжки: обери будь-які 5–6 хвилин м’яких поз після навантаження.</small></div>
+        </div>
+        <div class="yt-links"><a href="https://www.youtube.com/watch?v=v7AYKMP6rOE" target="_blank" rel="noopener"><span class="ic" data-icon="play"></span>Дивитись на YouTube ↗</a></div>
+      </div>
+      <div class="card rv" style="--d:.1s">
+        <h3><span class="ic" data-icon="heart"></span>Щоденник самоконтролю · проба Руф’є</h3>
+        <p style="font-size:13px;color:var(--ink2);font-weight:600;margin-bottom:10px">P₁ — ЧСС за 15 с у спокої сидячи; P₂ — за 15 с одразу після 30 присідань за 45 с; P₃ — за 15 с першої хвилини відновлення.</p>
+        <div class="rf-grid">
+          <div><label for="rf1">P₁ · спокій</label><input class="num-in" id="rf1" type="number" min="5" max="60" placeholder="15" inputmode="numeric"></div>
+          <div><label for="rf2">P₂ · після навантаження</label><input class="num-in" id="rf2" type="number" min="5" max="60" placeholder="25" inputmode="numeric"></div>
+          <div><label for="rf3">P₃ · відновлення</label><input class="num-in" id="rf3" type="number" min="5" max="60" placeholder="18" inputmode="numeric"></div>
+        </div>
+        <button class="btn btn-acc btn-sm" id="rfCalc"><span class="ic" data-icon="heart"></span>Розрахувати індекс</button>
+        <div class="rf-out" id="rfOut"></div>
+      </div>
+    </div>
+    <div class="note rv" style="margin-top:20px"><span class="ic" data-icon="info"></span><span><b>Медичний акцент:</b> якщо ЧСС не повертається до вихідної ±10–15% за 3–5 хвилин, з’явилися запаморочення чи біль у грудях — припини навантаження та звернись до медпрацівника. Студенти спеціальної медичної групи виконують стрибки та прискорення лише за дозволом лікаря.</span></div>
+  </div>
+</section>
+
+<!-- ================= 05 QUIZ ================= -->
+<section id="quiz" style="--acc:var(--violet);--accD:var(--violetD);--accS:var(--violetS)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">05</span>
+      <div class="sec-title"><h2>Тест для самоперевірки</h2><p>10 питань за матеріалом заняття. Після кожної відповіді — пояснення. Результат переведемо у 12-бальну шкалу.</p></div>
+      <div class="sec-meta"><span class="chip"><span class="ic" data-icon="clock"></span>7 хвилин</span><span class="status" data-status="test">очікує</span></div>
+    </div>
+    <div class="quiz-wrap rv"><div class="card" id="quizBox" style="position:relative;overflow:hidden"></div></div>
+  </div>
+</section>
+
+<!-- ================= 06 HOMEWORK ================= -->
+<section id="homework" style="--acc:var(--green);--accD:var(--greenD);--accS:var(--greenS)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">06</span>
+      <div class="sec-title"><h2>Домашнє завдання</h2><p>Обов’язкова інфографіка + тренувальний план і щоденник самоконтролю. Скористайся конструктором нижче — він збере готовий макет.</p></div>
+      <div class="sec-meta"><span class="chip"><span class="ic" data-icon="calendar"></span>до 27.11, 18:00</span><span class="status" data-status="hw">очікує</span></div>
+    </div>
+    <div class="hw-grid">
+      <div class="card rv">
+        <span class="hw-badge"><span class="ic" data-icon="flag" style="width:13px;height:13px"></span>Обов’язково</span>
+        <h3 style="margin-top:14px"><span class="ic" data-icon="spark"></span>Створи інфографіку на одну з тем</h3>
+        <p style="font-size:13.8px;color:var(--ink2);font-weight:600">«Стрибок у довжину з місця: 4 фази техніки» <b>або</b> «Низький старт: команди та розбіг». Формат: A4, 1080×1080 або сторіз 1080×1920. Здача: файл PNG/PDF у навчальний чат групи або на пошту викладача.</p>
+        <div style="display:flex;align-items:center;gap:10px;margin:16px 0 10px"><b style="font-size:13px">Чек-лист вимог</b><span class="ck-count" id="hwCount" style="margin-left:auto">0/7</span></div>
+        <div class="ck-list" id="hwCk"></div>
+        <div class="ck-bar"><i id="hwBar"></i></div>
+        <div class="tools">
+          <span class="chip"><span class="ic" data-icon="spark"></span>Canva</span><span class="chip">Genially</span><span class="chip">Piktochart</span><span class="chip">Figma</span><span class="chip">PowerPoint</span><span class="chip chip-acc"><span class="ic" data-icon="bolt"></span>Конструктор нижче ↓</span>
+        </div>
+      </div>
+      <div class="hw-side">
+        <div class="card rv" style="--d:.08s">
+          <h3><span class="ic" data-icon="bolt"></span>Тренувальне завдання</h3>
+          <ul class="hw-list">
+            <li><span class="ic" data-icon="check"></span>3 тренування на тиждень: по 10 стрибків у довжину з місця з повним контролем приземлення.</li>
+            <li><span class="ic" data-icon="check"></span>Щотренування: 3 стартові прискорення 15–20 м із низького старту (за наявності безпечного майданчика).</li>
+            <li><span class="ic" data-icon="check"></span>Записуй найкращий стрибок тижня та самопочуття у щоденник.</li>
+          </ul>
+        </div>
+        <div class="card rv" style="--d:.16s">
+          <h3><span class="ic" data-icon="heart"></span>Самоконтроль</h3>
+          <ul class="hw-list">
+            <li><span class="ic" data-icon="check"></span>Проба Руф’є двічі: понеділок і п’ятниця, вранці. Порівняй індекси.</li>
+            <li><span class="ic" data-icon="check"></span>ЧСС спокою щоранку (за 15 с × 4) + сон і самопочуття за 5-бальною шкалою.</li>
+            <li><span class="ic" data-icon="check"></span>Висновок (3–4 речення): як змінюється реакція ССС за тиждень?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="builder card rv" style="padding:26px">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <h3 style="margin:0;font-size:19px"><span class="ic ic-lg" data-icon="spark"></span>Конструктор інфографіки</h3>
+        <span class="chip chip-acc" style="margin-left:auto"><span class="ic" data-icon="bolt"></span>Усе застосовується наживо</span>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink2);font-weight:600;margin-top:8px;max-width:74ch">Налаштуй тему, заголовок, колір і блоки — отримай готовий макет з фазами, цифрами, помилками та нормативами. Завантаж PNG і додай власні деталі або здавай як є, підписавши себе.</p>
+      <div class="builder-grid">
+        <div class="b-controls">
+          <div class="b-field"><label for="bTheme">Тема</label><select class="sel" id="bTheme"><option value="jump">Стрибок у довжину з місця</option><option value="start">Низький старт і розбіг</option></select></div>
+          <div class="b-field"><label for="bTitle">Заголовок</label><input class="txt-in" id="bTitle" maxlength="60" value=""></div>
+          <div class="b-field"><label for="bAuthor">Підпис автора</label><input class="txt-in" id="bAuthor" maxlength="46" value=""></div>
+          <div class="b-field"><label>Акцентний колір</label><div class="swatches" id="bSwatches"></div></div>
+          <div class="b-field"><label>Блоки інфографіки</label>
+            <div class="b-toggles">
+              <label class="switch"><input type="checkbox" id="bTPhases" checked><span class="sw-track"></span>Фази / команди з ілюстраціями</label>
+              <label class="switch"><input type="checkbox" id="bTStats" checked><span class="sw-track"></span>Ключові цифри та кути</label>
+              <label class="switch"><input type="checkbox" id="bTErrors" checked><span class="sw-track"></span>Типові помилки</label>
+              <label class="switch"><input type="checkbox" id="bTNorms" checked><span class="sw-track"></span>Нормативи / орієнтири</label>
+              <label class="switch"><input type="checkbox" id="bTSafety" checked><span class="sw-track"></span>Блок безпеки та ЧСС</label>
+            </div>
+          </div>
+          <div class="ctl"><label for="bFont">Масштаб тексту <output id="bFontOut">100%</output></label><input type="range" id="bFont" min="0.9" max="1.15" step="0.05" value="1"></div>
+          <div class="b-actions">
+            <button class="btn btn-acc" id="bPng"><span class="ic" data-icon="download"></span>Завантажити PNG</button>
+            <button class="btn btn-ink btn-sm" id="bSvg"><span class="ic" data-icon="download"></span>SVG</button>
+            <button class="btn btn-ghost btn-sm" id="bReset"><span class="ic" data-icon="reset"></span>Скинути</button>
+          </div>
+        </div>
+        <div class="b-preview">
+          <div class="b-frame" id="bPreview" aria-live="polite"></div>
+          <div class="b-hint"><span class="ic" data-icon="info"></span>Порада: для сторіз експортуй SVG і розмісти у Canva на полотні 1080×1920.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Заняття завершено — що далі?</h3>
+        <p>Повернись до будь-якого етапу через меню. Наступне заняття: «Удосконалення бігу на короткі дистанції. Фінішування». Не забудь здати інфографіку до п’ятниці та вести щоденник самоконтролю.</p>
+        <div class="foot-prog">
+          <span class="fp" id="footProg">Прогрес: 0/6 етапів</span>
+          <button class="btn-reset" id="resetProg"><span class="ic" data-icon="reset" style="width:14px;height:14px"></span>Скинути прогрес заняття</button>
+        </div>
+      </div>
+      <div class="teacher">
+        <span class="t-ava">ОГ</span>
+        <div>
+          <b>Оксана Гнатюк</b>
+          <span>викладачка фізичної культури · консультація щочетверга 15:00–16:00, Google Meet</span>
+          <a href="mailto:o.hnatiuk@medcollege.ua">o.hnatiuk@medcollege.ua</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Медичний фаховий коледж · кафедра фізичного виховання · осінь 2026</span>
+      <span>Рухайся щодня — інвестуй у власне здоров’я 💪</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Нагору"><span class="ic" data-icon="arrowUp"></span></button>
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+"use strict";
+/* ============ HELPERS / STORE ============ */
+const $=id=>document.getElementById(id), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const LS={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const DEF={progress:{warmup:false,jump:false,start:false,cool:false,test:false,hw:false},muted:false,bestQuiz:0,bestRt:null,real:null,rufier:null,warmCk:[],hwCk:[],sim:{angle:42,v:4.6,squat:78,swing:80,speed:1,sex:'m',traj:true,grid:true},builder:null};
+let S=Object.assign({},DEF,LS.get('fk_lesson_v1')||{});
+S.progress=Object.assign({},DEF.progress,S.progress); S.sim=Object.assign({},DEF.sim,S.sim);
+const save=()=>LS.set('fk_lesson_v1',S);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+function download(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500)}
+/* ============ ICONS ============ */
+const IC={
+menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
+clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c3 2.2 9 2.2 12 0v-4.5M22 9v5"/>',
+home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',
+tape:'<rect x="2" y="9" width="20" height="6" rx="2"/><path d="M6 9v3M10 9v3M14 9v3M18 9v3"/>',
+heart:'<path d="M12 20s-7-4.5-9-9c-1.5-3.5 2-8 6-6l3 2 3-2c4-2 7.5 2.5 6 6-2 4.5-9 9-9 9z"/>',
+wind:'<path d="M3 8h10a2.5 2.5 0 1 0-2.5-2.5M3 12h15a2.5 2.5 0 1 1-2.5 2.5M3 16h8"/>',
+check:'<path d="M4 12l5 5 11-11"/>',
+x:'<path d="M6 6l12 12M18 6L6 18"/>',
+play:'<path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/>',
+next:'<path d="M5 4l10 8-10 8z" fill="currentColor" stroke="none"/><path d="M19 4v16"/>',
+reset:'<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>',
+dice:'<rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.4" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/>',
+download:'<path d="M12 3v13M6 10l6 6 6-6M4 21h16"/>',
+sound:'<path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor" stroke="none"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/>',
+mute:'<path d="M4 10v4h4l5 4V6L8 10H4z" fill="currentColor" stroke="none"/><path d="M17 9l5 5M22 9l-5 5"/>',
+flag:'<path d="M5 3v18M5 4h11l-2 3 2 3H5"/>',
+bolt:'<path d="M13 2L4 14h6l-1 8 9-12h-6z" fill="currentColor" stroke="none"/>',
+target:'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
+calendar:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+arrowR:'<path d="M4 12h15M13 6l6 6-6 6"/>',
+arrowL:'<path d="M20 12H5M11 6l-6 6 6 6"/>',
+arrowUp:'<path d="M12 19V5M6 11l6-6 6 6"/>',
+spark:'<path d="M12 3l2.5 6 6.5.5-5 4.5 1.5 6.5-5.5-3.5-5.5 3.5L8 14 3 9.5l6.5-.5z"/>',
+info:'<circle cx="12" cy="12" r="9"/><path d="M12 8h.01M12 11.5V16"/>',
+video:'<rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3"/>'
+};
+const icon=(n,cls='ic')=>`<span class="${cls}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[n]||''}</svg></span>`;
+function injectIcons(){$$('[data-icon]').forEach(el=>{el.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[el.dataset.icon]||''}</svg>`})}
+/* ============ SOUND ============ */
+let AC=null,master=null;
+function audio(){if(!AC){const C=window.AudioContext||window.webkitAudioContext;if(!C)return null;AC=new C();master=AC.createGain();master.gain.value=S.muted?0:1;master.connect(AC.destination)}if(AC.state==='suspended')AC.resume();return AC}
+function tone(f,dur=.12,type='sine',vol=.2,delay=0){if(S.muted)return;const ac=audio();if(!ac)return;const t=ac.currentTime+delay,o=ac.createOscillator(),g=ac.createGain();o.type=type;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(master);o.start(t);o.stop(t+dur+.06)}
+function noise(dur=.2,vol=.25,lp=1000,delay=0){if(S.muted)return;const ac=audio();if(!ac)return;const t=ac.currentTime+delay,n=Math.floor(ac.sampleRate*dur),buf=ac.createBuffer(1,n,ac.sampleRate),d=buf.getChannelData(0);for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);const src=ac.createBufferSource();src.buffer=buf;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=lp;const g=ac.createGain();g.gain.value=vol;src.connect(f);f.connect(g);g.connect(master);src.start(t)}
+const sfx={tick:()=>tone(660,.06,'triangle',.14),whistle:()=>{tone(2100,.09,'square',.1);tone(2100,.09,'square',.1,.13)},set:()=>tone(1500,.22,'square',.09),go:()=>tone(880,.16,'square',.22),buzz:()=>tone(150,.3,'sawtooth',.2),good:()=>{tone(659,.1,'sine',.18);tone(988,.15,'sine',.18,.09)},bad:()=>tone(220,.2,'triangle',.18),chime:()=>{tone(784,.12,'sine',.16);tone(988,.16,'sine',.16,.1)},win:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.17,'sine',.18,i*.09)),whoosh:()=>noise(.28,.3,900),thud:()=>{tone(85,.12,'sine',.3);noise(.08,.2,300)},pop:()=>tone(520,.07,'triangle',.16)};
+function soundUI(){const b=$('soundBtn');b.classList.toggle('off',S.muted);b.setAttribute('aria-pressed',String(!S.muted));b.title=S.muted?'Увімкнути звук':'Вимкнути звук';b.setAttribute('aria-label',S.muted?'Звук: вимкнено':'Звук: увімкнено');$('soundIco').innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${IC[S.muted?'mute':'sound']}</svg>`}
+$('soundBtn').addEventListener('click',()=>{S.muted=!S.muted;if(master)master.gain.value=S.muted?0:1;save();soundUI();if(!S.muted)sfx.pop();toast(S.muted?'Звук вимкнено':'Звук увімкнено','info')});
+/* ============ TOASTS / CONFETTI ============ */
+function toast(msg,type='info',action=null){const box=$('toasts');while(box.children.length>=3)box.firstChild.remove();const el=document.createElement('div');el.className=`toast t-${type}`;el.innerHTML=`<i></i><span>${msg}</span>`;if(action){const b=document.createElement('button');b.textContent=action.label;b.onclick=()=>{action.fn();kill()};el.append(b)}box.append(el);const kill=()=>{el.classList.add('out');setTimeout(()=>el.remove(),320)};setTimeout(kill,action?6500:4200)}
+function confetti(anchor){if(RM)return;const r=anchor.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+Math.min(r.height/2,160);const cols=['#F4511E','#F59F0A','#2563EB','#0EA5E9','#0D9488','#7C3AED','#E11D48','#3E9B4F'];for(let i=0;i<28;i++){const s=document.createElement('span');s.className='confetti';s.style.background=cols[i%cols.length];s.style.left=cx+'px';s.style.top=cy+'px';document.body.append(s);const ang=Math.random()*Math.PI*2,v=90+Math.random()*190;s.animate([{transform:'translate(0,0) rotate(0deg)',opacity:1},{transform:`translate(${Math.cos(ang)*v}px,${Math.sin(ang)*v-60+220}px) rotate(${(Math.random()*720-360)}deg)`,opacity:0}],{duration:1100+Math.random()*600,easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>s.remove()}}
+/* ============ PROGRESS ============ */
+const P_NAMES={warmup:'Розминка',jump:'Стрибок',start:'Старт і розбіг',cool:'Заминка',test:'Тест',hw:'Інфографіка'};
+const STEPS=[{k:'warmup',id:'warmup',n:'Розминка',t:'7 хв'},{k:'jump',id:'jump',n:'Стрибок',t:'12 хв'},{k:'start',id:'start',n:'Старт і розбіг',t:'8 хв'},{k:'cool',id:'cooldown',n:'Заминка',t:'6 хв'},{k:'test',id:'quiz',n:'Тест',t:'7 хв'},{k:'hw',id:'homework',n:'Інфографіка',t:'д/з'}];
+function mark(k){if(!S.progress[k]){S.progress[k]=true;save();refreshProgress();toast(`Етап «${P_NAMES[k]}» виконано ✓`,'good');sfx.good()}}
+function refreshProgress(){const n=Object.values(S.progress).filter(Boolean).length;$('progCount').textContent=n;$('navProgFill').style.width=(n/6*100)+'%';$('footProg').textContent=`Прогрес: ${n}/6 етапів`;$$('.step').forEach(el=>el.classList.toggle('done',!!S.progress[el.dataset.k]));$$('[data-status]').forEach(el=>{const d=!!S.progress[el.dataset.status];el.classList.toggle('done',d);el.innerHTML=d?`${icon('check')}виконано`:'очікує'})}
+$('routeTrack').innerHTML=STEPS.map((s,i)=>`<button class="step" data-k="${s.k}" data-to="${s.id}"><span class="step-n">0${i+1}<span class="ok">✓</span></span><b>${s.n}</b><span>${s.t}</span></button>`).join('');
+$('routeTrack').addEventListener('click',e=>{const b=e.target.closest('.step');if(b)document.getElementById(b.dataset.to).scrollIntoView({behavior:RM?'auto':'smooth'})});
+$('resetProg').addEventListener('click',()=>{const snap=JSON.parse(JSON.stringify(S.progress));S.progress={warmup:false,jump:false,start:false,cool:false,test:false,hw:false};save();refreshProgress();toast('Прогрес заняття скинуто','warn',{label:'Відмінити',fn:()=>{S.progress=snap;save();refreshProgress();toast('Прогрес відновлено','good')}})});
+/* ============ POSES / ATHLETE ============ */
+const POSES={
+stand:{hd:[108,52],sh:[104,72],hp:[98,116],k1:[102,144],f1:[100,170],k2:[110,144],f2:[112,170],e1:[112,96],h1:[116,120],e2:[100,98],h2:[96,122]},
+prep:{hd:[112,64],sh:[104,82],hp:[90,118],k1:[112,140],f1:[102,170],k2:[120,142],f2:[114,170],e1:[80,98],h1:[60,116],e2:[86,102],h2:[66,122]},
+swing:{hd:[116,58],sh:[108,76],hp:[98,112],k1:[106,142],f1:[104,170],k2:[114,142],f2:[116,170],e1:[126,60],h1:[142,40],e2:[120,66],h2:[134,48]},
+launch:{hd:[144,86],sh:[136,100],hp:[112,128],k1:[96,150],f1:[80,168],k2:[102,146],f2:[88,162],e1:[152,82],h1:[168,64],e2:[146,88],h2:[160,72]},
+flight:{hd:[128,68],sh:[120,84],hp:[102,112],k1:[136,98],f1:[124,126],k2:[142,104],f2:[132,130],e1:[140,92],h1:[158,84],e2:[134,98],h2:[150,94]},
+land:{hd:[128,86],sh:[120,102],hp:[100,132],k1:[134,140],f1:[114,170],k2:[140,146],f2:[126,170],e1:[140,108],h1:[162,100],e2:[134,114],h2:[154,108]},
+onStart:{hd:[136,118],sh:[124,130],hp:[90,126],k1:[108,148],f1:[118,168],k2:[76,164],f2:[52,160],e1:[128,150],h1:[130,168],e2:[120,150],h2:[122,168]},
+attention:{hd:[134,116],sh:[122,128],hp:[86,106],k1:[104,140],f1:[116,166],k2:[70,136],f2:[48,162],e1:[126,148],h1:[128,168],e2:[118,148],h2:[120,168]},
+go:{hd:[136,82],sh:[128,96],hp:[102,122],k1:[126,124],f1:[120,148],k2:[82,148],f2:[62,166],e1:[142,86],h1:[154,68],e2:[110,108],h2:[94,120]},
+sprint:{hd:[136,74],sh:[128,88],hp:[106,118],k1:[130,116],f1:[124,142],k2:[88,146],f2:[70,168],e1:[144,82],h1:[156,64],e2:[108,102],h2:[92,114]},
+runTall:{hd:[132,62],sh:[126,78],hp:[112,116],k1:[132,112],f1:[126,140],k2:[96,146],f2:[80,168],e1:[142,74],h1:[152,56],e2:[108,96],h2:[94,108]}
+};
+function ath(name,o={}){const p=POSES[name],ink=o.stroke||'#1C2433',acc=o.accent||'#F4511E',far=o.far||'rgba(28,36,51,.42)';
+const L=(pts,c,w)=>`<polyline points="${pts.map(q=>q.join(',')).join(' ')}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+return `${o.shadow?`<ellipse cx="${(p.f1[0]+p.f2[0])/2}" cy="176" rx="46" ry="7" fill="${ink}" opacity=".09"/>`:''}${L([p.sh,p.e2,p.h2],far,10)}${L([p.hp,p.k2,p.f2],far,12)}${L([p.sh,p.hp],ink,14)}${L([p.hp,p.k1,p.f1],ink,12)}${L([p.sh,p.e1,p.h1],ink,10)}<circle cx="${p.hd[0]}" cy="${p.hd[1]}" r="12.5" fill="${ink}"/><circle cx="${p.f1[0]}" cy="${p.f1[1]}" r="5.5" fill="${acc}"/><circle cx="${p.f2[0]}" cy="${p.f2[1]}" r="5.5" fill="${acc}" opacity=".55"/><circle cx="${p.h1[0]}" cy="${p.h1[1]}" r="4" fill="${acc}"/>`}
+function lerpPose(a,b,t){const o={};for(const k in a)o[k]=[a[k][0]+(b[k][0]-a[k][0])*t,a[k][1]+(b[k][1]-a[k][1])*t];return o}
+function drawAthP(c,p,x,y,s,rot,acc){c.save();c.translate(x,y);c.rotate(rot||0);c.scale(s,s);c.translate(-100,-170);c.lineCap='round';c.lineJoin='round';
+const seg=(pts,col,w)=>{c.strokeStyle=col;c.lineWidth=w;c.beginPath();c.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)c.lineTo(pts[i][0],pts[i][1]);c.stroke()};
+seg([p.sh,p.e2,p.h2],'rgba(28,36,51,.42)',10);seg([p.hp,p.k2,p.f2],'rgba(28,36,51,.42)',12);seg([p.sh,p.hp],'#1C2433',14);seg([p.hp,p.k1,p.f1],'#1C2433',12);seg([p.sh,p.e1,p.h1],'#1C2433',10);
+c.fillStyle='#1C2433';c.beginPath();c.arc(p.hd[0],p.hd[1],12.5,0,7);c.fill();
+c.fillStyle=acc;c.beginPath();c.arc(p.f1[0],p.f1[1],5.5,0,7);c.fill();c.globalAlpha=.55;c.beginPath();c.arc(p.f2[0],p.f2[1],5.5,0,7);c.fill();c.globalAlpha=1;c.beginPath();c.arc(p.h1[0],p.h1[1],4,0,7);c.fill();c.restore()}
+$('heroAth').innerHTML=ath('flight',{accent:'#F4511E'});
+$$('[data-pose]').forEach(svg=>{svg.innerHTML=`<line x1="20" y1="176" x2="180" y2="176" stroke="#D8CEBB" stroke-width="2"/>`+ath(svg.dataset.pose,{accent:'#2563EB',shadow:true})});
+$$('[data-pose-g]').forEach(g=>{g.innerHTML=ath(g.dataset.poseG,{accent:'#2563EB',shadow:true})});
+/* ============ NAV / REVEAL / PARALLAX ============ */
+injectIcons();soundUI();
+const navLinks=$('navLinks');
+$('burger').addEventListener('click',()=>{const o=navLinks.classList.toggle('open');$('burger').setAttribute('aria-expanded',String(o))});
+navLinks.addEventListener('click',e=>{if(e.target.closest('a')){navLinks.classList.remove('open');$('burger').setAttribute('aria-expanded','false')}});
+if('IntersectionObserver' in window){
+const spy=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){$$('.nav-links a').forEach(a=>a.classList.toggle('active',a.dataset.spy===en.target.id))}})},{rootMargin:'-38% 0px -55% 0px'});
+['warmup','jump','start','cooldown','quiz','homework'].forEach(id=>spy.observe($(id)));
+const rev=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');rev.unobserve(en.target)}})},{threshold:.12});
+$$('.rv').forEach(el=>rev.observe(el));
+}else{$$('.rv').forEach(el=>el.classList.add('in'))}
+let scrollTick=false;
+addEventListener('scroll',()=>{if(scrollTick)return;scrollTick=true;requestAnimationFrame(()=>{scrollTick=false;const y=scrollY;$('navBar').classList.toggle('scrolled',y>10);$('toTop').classList.toggle('show',y>640);if(!RM&&y<760)$('posterWrap').style.transform=`translateY(${y*.055}px)`})},{passive:true});
+$('toTop').addEventListener('click',()=>scrollTo({top:0,behavior:RM?'auto':'smooth'}));
+/* ============ VIDEO FACADES ============ */
+$$('.yt').forEach(yt=>{const play=()=>{if(yt.dataset.live)return;yt.dataset.live='1';yt.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${yt.dataset.id}?autoplay=1&rel=0" title="Відео-приклад з YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;if(yt.dataset.mark)mark(yt.dataset.mark)};yt.addEventListener('click',play);yt.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}})});
+/* ============ WARMUP CHECKLIST ============ */
+const WARM=[['Нахили та оберти голови','4×4 повільно, без ривків'],['Колові оберти плечей і рук','8 вперед + 8 назад'],['Махи руками та нахили тулуба','12 махів + 8 нахилів у боки'],['Оберти таза й колін','по 8 в кожен бік'],['Випади вперед почергово','8 на кожну ногу'],['Присідання в середньому темпі','12 повторів, п’яти на підлозі'],['Стрибки на місці на носках','20 легких стрибків'],['Біг на місці з високим стегном','30 секунд, ЧСС → 110–130']];
+function warmRender(){const box=$('warmCk');box.innerHTML=WARM.map((w,i)=>`<label class="ck ${S.warmCk[i]?'checked':''}"><input type="checkbox" data-i="${i}" ${S.warmCk[i]?'checked':''}><span><b>${i+1}. ${w[0]}</b><span>${w[1]}</span></span></label>`).join('');const n=S.warmCk.filter(Boolean).length;$('warmCount').textContent=`${n}/8`;$('warmBar').style.width=(n/8*100)+'%'}
+$('warmCk').addEventListener('change',e=>{const i=+e.target.dataset.i;S.warmCk[i]=e.target.checked;save();warmRender();sfx.tick();if(S.warmCk.filter(Boolean).length===8){mark('warmup');toast('Розминку завершено — можна стрибати!','good')}});
+warmRender();
+/* ============ PHASES ============ */
+const PHASES=[
+{name:'Підготовка і замах',pose:'prep',cue:'Напівприсід · руки назад',key:['Стопи на ширині таза, носки біля лінії поштовху','Напівприсід: кут у колінах ≈ 130–140°','Руки відводимо назад — «зводимо пружину»','Тулуб нахилений ≈ 45°, погляд уперед-вниз'],errs:['Повний глибокий присід робить поштовх повільним','Замах руками не узгоджений із роботою ніг']},
+{name:'Поштовх',pose:'launch',cue:'Кут вильоту 38–45°',key:['Вибухове розгинання: таз → коліна → стопи','Мах руками вперед-вгору додає 10–15% результату','Тіло витягується в лінію під кутом 38–45°','Поштовх двома ногами одночасно, без добігання'],errs:['Поштовх однією ногою — «крок» замість стрибка','Зависокий кут (>55°): «свічка» вгору, а не вдовж']},
+{name:'Політ',pose:'flight',cue:'Групування · ноги вперед',key:['Після відриву — групування: коліна до грудей','Гомілки виносимо вперед, руки тягнуться за ними','Тулуб нахиляється вперед — готуємо приземлення','Політ триває лише ≈ 0.5–0.7 с — дій швидко'],errs:['Ноги «висять» ззаду — втрата десятків сантиметрів','Погляд угору замість контролю приземлення']},
+{name:'Приземлення',pose:'land',cue:'Амортизація колінами',key:['Торкання обома ногами: п’ятки → вся стопа','Коліна м’яко згинаються — бережемо суглоби й хребет','Руки різко вперед, тулуб за ними — не падаємо назад','Результат — до найближчого сліду тіла за лінією приземлення'],errs:['Приземлення на прямі ноги — ударне навантаження','Падіння назад: слід рук «з’їдає» сантиметри']}];
+let phaseIdx=0;
+$('phaseTabs').innerHTML=PHASES.map((p,i)=>`<button class="tab" role="tab" data-i="${i}"><i>0${i+1}</i>${p.name}</button>`).join('');
+function showPhase(i){phaseIdx=(i+PHASES.length)%PHASES.length;const p=PHASES[phaseIdx];
+$$('#phaseTabs .tab').forEach((t,k)=>{t.classList.toggle('active',k===phaseIdx);t.setAttribute('aria-selected',String(k===phaseIdx))});
+$('phaseFig').innerHTML=`<line x1="16" y1="176" x2="184" y2="176" stroke="#D8CEBB" stroke-width="2"/>${p.pose==='launch'||p.pose==='flight'?'<path d="M30 160 Q 90 60 176 120" fill="none" stroke="#F4511E" stroke-width="2" stroke-dasharray="6 6" opacity=".5"/>':''}`+ath(p.pose,{accent:'#F4511E',shadow:p.pose!=='flight'});
+$('phaseInfo').innerHTML=`<h4>Фаза ${phaseIdx+1}. ${p.name}</h4><span class="chip chip-acc phase-cue">${icon('target')}${p.cue}</span><ul class="key">${p.key.map(k=>`<li>${icon('check')}<span>${k}</span></li>`).join('')}</ul><div class="errs"><b>Типові помилки</b><ul>${p.errs.map(e=>`<li>${icon('x')}<span>${e}</span></li>`).join('')}</ul></div>`}
+$('phaseTabs').addEventListener('click',e=>{const t=e.target.closest('.tab');if(t){showPhase(+t.dataset.i);sfx.tick()}});
+$('phasePrev').addEventListener('click',()=>{showPhase(phaseIdx-1);sfx.tick()});
+$('phaseNext').addEventListener('click',()=>{showPhase(phaseIdx+1);sfx.tick()});
+showPhase(0);
+/* ============ SIMULATOR ============ */
+const NORMS={m:{label:'Юнаки',n:[190,210,230]},f:{label:'Дівчата',n:[150,170,190]}};
+const GC={0:'#6C7486',3:'#F59F0A',4:'#2563EB',5:'#3E9B4F'};
+function physics(p){const sq=.82+.18*Math.exp(-Math.pow((p.squat-78)/30,2));const sw=.92+.10*p.swing/100;const v=p.v*sq*sw,th=p.angle*Math.PI/180,vx=v*Math.cos(th),vy=v*Math.sin(th),h0=.18,g=9.81;const T=(vy+Math.sqrt(vy*vy+2*g*h0))/g;return{R:vx*T,T,vx,vy,h0}}
+const gradeOf=(cm,sex)=>{const n=NORMS[sex].n;return cm>=n[2]?5:cm>=n[1]?4:cm>=n[0]?3:0};
+const sim={cv:$('simCanvas'),ctx:null,w:0,h:0,ppm:80,gy:0,x0:0,state:'idle',st:0,ft:0,fl:null,last:null,lastArc:null,history:[],best:0,parts:[],motes:[],shake:0,dash:0,raf:null,visible:true,t:0};
+sim.ctx=sim.cv.getContext('2d');
+for(let i=0;i<10;i++)sim.motes.push({x:Math.random(),y:Math.random(),s:.4+Math.random()*.8});
+function sizeCanvas(){const w=sim.cv.clientWidth||sim.cv.parentElement.clientWidth,h=sim.cv.clientHeight||390,dpr=Math.min(2,devicePixelRatio||1);sim.w=w;sim.h=h;sim.cv.width=Math.round(w*dpr);sim.cv.height=Math.round(h*dpr);sim.ctx.setTransform(dpr,0,0,dpr,0,0);sim.ppm=Math.min(h*.30,(w-60)/4.4);sim.gy=h*.74;sim.x0=Math.max(30,(w-4.4*sim.ppm)/2)}
+const sx=m=>sim.x0+m*sim.ppm, sy=m=>sim.gy-m*sim.ppm;
+const predCm=()=>Math.round(physics(S.sim).R*100);
+function predictUI(){const cm=predCm(),g=gradeOf(cm,S.sim.sex);$('predOut').textContent=`≈ ${cm} см`;$('predOut').style.color=g?GC[g]:'var(--accD)'}
+function syncSimUI(){$('ctlAngle').value=S.sim.angle;$('oAngle').textContent=S.sim.angle+'°';$('ctlV').value=S.sim.v;$('oV').textContent=(+S.sim.v).toFixed(2)+' м/с';$('ctlSquat').value=S.sim.squat;$('oSquat').textContent=S.sim.squat+'%';$('ctlSwing').value=S.sim.swing;$('oSwing').textContent=S.sim.swing+'%';$('ctlSpeed').value=S.sim.speed;$('oSpeed').textContent=S.sim.speed+'×';$('sexSel').value=S.sim.sex;$('tglTraj').checked=S.sim.traj;$('tglGrid').checked=S.sim.grid;predictUI()}
+function renderHistory(){const box=$('simHistory');$('simEmpty').style.display=sim.history.length?'none':'inline';box.innerHTML=sim.history.map(h=>{const g=gradeOf(h,S.sim.sex);return`<span class="h-chip g${g} ${h===sim.best?'best':''}">${h}${h===sim.best?' ★':''}</span>`}).join('');const b=$('bestOut');if(sim.best){b.style.display='inline-flex';b.textContent=`Рекорд: ${sim.best} см`}else b.style.display='none'}
+function simJump(){if(['crouch','swing','launch','flight','land'].includes(sim.state)){toast('Стрибок уже виконується…','warn');return}sim.fl=physics(S.sim);sim.state='crouch';sim.st=0;$('btnJump').disabled=true;sfx.tick()}
+function simFinalize(){const cm=Math.round(sim.fl.R*100),g=gradeOf(cm,S.sim.sex);sim.last={cm,g};sim.history.push(cm);if(sim.history.length>7)sim.history.shift();sim.best=Math.max(sim.best,cm);
+sim.lastArc=[];for(let i=0;i<=26;i++){const t=sim.fl.T*i/26;sim.lastArc.push([sx(sim.fl.vx*t),sy(sim.fl.h0+sim.fl.vy*t-4.905*t*t)])}
+for(let i=0;i<18;i++)sim.parts.push({x:sx(sim.fl.R),y:sim.gy,vx:(Math.random()-.5)*130,vy:-30-Math.random()*110,l:.5+Math.random()*.45,r:1.5+Math.random()*2.6,c:['#E3CFA0','#D8BE8C','#C9A96B','#F4511E'][i%4]});
+sim.shake=RM?0:.22;sfx.thud();if(g===5)setTimeout(()=>sfx.win(),160);renderHistory();mark('jump');$('predOut').textContent=`${cm} см · ${g?'оцінка '+g:'поза нормою'}`;$('predOut').style.color=GC[g]}
+function rr(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()}
+function simDraw(){const c=sim.ctx,w=sim.w,h=sim.h;if(!w)return;c.clearRect(0,0,w,h);
+const sky=c.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#FFFDF8');sky.addColorStop(1,'#FBF3E3');c.fillStyle=sky;c.fillRect(0,0,w,h);
+c.fillStyle='rgba(245,159,10,.13)';c.beginPath();c.arc(w-70,54,38,0,7);c.fill();
+c.save();if(sim.shake>0)c.translate((Math.random()-.5)*sim.shake*22,(Math.random()-.5)*sim.shake*14);
+if(S.sim.grid){c.strokeStyle='rgba(28,36,51,.055)';c.lineWidth=1;for(let m=.5;m<=4;m+=.5){c.beginPath();c.moveTo(sx(m),sim.gy-190);c.lineTo(sx(m),sim.gy);c.stroke()}c.setLineDash([4,6]);for(let m=1;m<=2;m++){c.beginPath();c.moveTo(sim.x0,sy(m));c.lineTo(sx(4.35),sy(m));c.stroke();c.fillStyle='rgba(108,116,134,.6)';c.font='700 10px "JetBrains Mono",monospace';c.fillText(m+' м',sim.x0+4,sy(m)-4)}c.setLineDash([])}
+c.fillStyle='#F1E4C6';rr(c,sx(.15),sim.gy-3,sx(4.35)-sx(.15),13,6);c.fill();
+c.fillStyle='rgba(160,130,80,.35)';for(let i=0;i<46;i++){const px=sx(.2)+((i*97)%Math.floor(sx(4.3)-sx(.2)));c.fillRect(px,sim.gy+1+(i%3)*3,2,1.5)}
+c.strokeStyle='#D8CEBB';c.lineWidth=2;c.beginPath();c.moveTo(sim.x0-14,sim.gy+10);c.lineTo(sx(4.4),sim.gy+10);c.stroke();
+c.fillStyle='#6C7486';c.font='700 10px "JetBrains Mono",monospace';c.textAlign='center';
+for(let m=0;m<=4;m+=.5){const M=m%1===0;c.strokeStyle='#B9AE97';c.lineWidth=M?2:1;c.beginPath();c.moveTo(sx(m),sim.gy+10);c.lineTo(sx(m),sim.gy+10+(M?10:6));c.stroke();if(M)c.fillText(m+' м',sx(m),sim.gy+34)}
+const nn=NORMS[S.sim.sex].n;for(let i=0;i<3;i++){const x=sx(nn[i]/100);c.strokeStyle='#414B5E';c.lineWidth=2;c.beginPath();c.moveTo(x,sim.gy);c.lineTo(x,sim.gy-52);c.stroke();c.fillStyle=GC[i+3];rr(c,x,sim.gy-52,36,17,4);c.fill();c.fillStyle='#fff';c.font='700 9.5px "JetBrains Mono",monospace';c.fillText(nn[i],x+18,sim.gy-40);c.fillStyle='#6C7486';c.font='700 9px Manrope,sans-serif';c.fillText('оц. '+(i+3),x+18,sim.gy-57)}
+c.fillStyle='#1C2433';c.fillRect(sim.x0-7,sim.gy-11,7,11);c.setLineDash([5,5]);c.strokeStyle='rgba(28,36,51,.3)';c.lineWidth=1.5;c.beginPath();c.moveTo(sim.x0,sim.gy-11);c.lineTo(sim.x0,sim.gy-150);c.stroke();c.setLineDash([]);c.fillStyle='#6C7486';c.font='700 10px Manrope,sans-serif';c.textAlign='left';c.fillText('лінія поштовху',sim.x0+7,sim.gy-142);
+const arc=(pts,col,dash)=>{if(!pts||pts.length<2)return;c.strokeStyle=col;c.lineWidth=2.5;c.setLineDash(dash);c.lineDashOffset=-sim.dash;c.beginPath();c.moveTo(pts[0][0],pts[0][1]);pts.forEach(p=>c.lineTo(p[0],p[1]));c.stroke();c.setLineDash([]);c.lineDashOffset=0};
+const idle=['idle','result'].includes(sim.state);
+if(S.sim.traj&&idle){const ph=physics(S.sim),pts=[];for(let i=0;i<=24;i++){const t=ph.T*i/24;pts.push([sx(ph.vx*t),sy(ph.h0+ph.vy*t-4.905*t*t)])}arc(pts,'rgba(201,58,16,.45)',[6,7]);const lx=sx(ph.R);c.strokeStyle='rgba(201,58,16,.6)';c.lineWidth=2;c.beginPath();c.arc(lx,sim.gy,6,0,7);c.stroke();c.fillStyle='rgba(255,255,255,.9)';const lbl='≈ '+predCm()+' см';c.font='700 11px "JetBrains Mono",monospace';const tw=c.measureText(lbl).width;rr(c,lx-tw/2-7,sim.gy-30,tw+14,18,8);c.fill();c.fillStyle='#C93A10';c.textAlign='center';c.fillText(lbl,lx,sim.gy-17)}
+if(S.sim.traj&&sim.lastArc&&!idle)arc(sim.lastArc,'rgba(244,81,30,.6)',[7,6]);
+if(S.sim.traj&&sim.lastArc&&idle)arc(sim.lastArc,'rgba(244,81,30,.35)',[7,6]);
+if(sim.last&&idle){const lx=sx(sim.last.cm/100),y=sim.gy+46;c.strokeStyle='#C93A10';c.lineWidth=2;c.beginPath();c.moveTo(sim.x0,y);c.lineTo(lx,y);c.moveTo(sim.x0,y-5);c.lineTo(sim.x0,y+5);c.moveTo(lx,y-5);c.lineTo(lx,y+5);c.stroke();const t=sim.last.cm+' см';c.font='700 12px "JetBrains Mono",monospace';const tw=c.measureText(t).width;c.fillStyle='#fff';rr(c,(sim.x0+lx)/2-tw/2-8,y-10,tw+16,20,9);c.fill();c.strokeStyle='#F4511E';c.lineWidth=1.5;rr(c,(sim.x0+lx)/2-tw/2-8,y-10,tw+16,20,9);c.stroke();c.fillStyle='#C93A10';c.textAlign='center';c.fillText(t,(sim.x0+lx)/2,y+4)}
+if(sim.best){const bx=sx(sim.best/100);c.fillStyle='#EAB308';c.font='700 14px Manrope,sans-serif';c.textAlign='center';c.fillText('★',bx,sim.gy-70);c.font='700 9px "JetBrains Mono",monospace';c.fillStyle='#B45309';c.fillText(sim.best,bx,sim.gy-79)}
+/* athlete */
+let pose=POSES.stand,rx=sx(0),ry=sim.gy,rot=0;const spd=S.sim.speed;
+if(sim.state==='idle'){pose=POSES.stand;ry=sim.gy-(RM?0:Math.sin(sim.t*2)*1.4)}
+else if(sim.state==='crouch')pose=lerpPose(POSES.stand,POSES.prep,ease(clamp(sim.st/.38,0,1)));
+else if(sim.state==='swing')pose=lerpPose(POSES.prep,POSES.swing,ease(clamp(sim.st/.22,0,1)));
+else if(sim.state==='launch')pose=lerpPose(POSES.swing,POSES.launch,clamp(sim.st/.12,0,1));
+else if(sim.state==='flight'){const k=clamp(sim.ft/sim.fl.T,0,1);pose=k<.35?lerpPose(POSES.launch,POSES.flight,k/.35):k>.7?lerpPose(POSES.flight,POSES.land,(k-.7)/.3):POSES.flight;const hh=sim.fl.h0+sim.fl.vy*sim.ft-4.905*sim.ft*sim.ft;rx=sx(sim.fl.vx*sim.ft);ry=sy(Math.max(0,hh));rot=.2*Math.atan2(sim.fl.vy-9.81*sim.ft,sim.fl.vx)}
+else if(sim.state==='land'){pose=POSES.land;rx=sx(sim.fl.R)}
+else if(sim.state==='result'){pose=lerpPose(POSES.land,POSES.stand,ease(clamp(sim.st/.6,0,1)));rx=sx(sim.fl.R)*(1-clamp(sim.st/.6,0,1))}
+if(['crouch','swing','launch'].includes(sim.state))rx=sx(0);
+const s=sim.ppm/74.6;
+c.fillStyle='rgba(28,36,51,.10)';c.beginPath();c.ellipse(rx,sim.gy+4,34*s*(sim.state==='flight'?.6:1),5*s,0,0,7);c.fill();
+drawAthP(c,pose,rx,ry,s,rot,'#F4511E');
+sim.parts.forEach(p=>{c.globalAlpha=clamp(p.l*1.6,0,1);c.fillStyle=p.c;c.beginPath();c.arc(p.x,p.y,p.r,0,7);c.fill()});c.globalAlpha=1;
+if(!RM){c.fillStyle='rgba(244,81,30,.12)';sim.motes.forEach(m=>{c.beginPath();c.arc(m.x*w,m.y*h*.6,m.s*1.6,0,7);c.fill()})}
+if(sim.last&&idle){c.fillStyle='rgba(255,255,255,.93)';rr(c,12,12,212,56,13);c.fill();c.strokeStyle='#E8E0D0';c.lineWidth=1.5;rr(c,12,12,212,56,13);c.stroke();c.textAlign='left';c.fillStyle='#1C2433';c.font='900 21px Unbounded,Manrope,sans-serif';c.fillText(sim.last.cm+' см',26,40);c.fillStyle=GC[sim.last.g];c.font='800 11.5px Manrope,sans-serif';c.fillText((sim.last.g?'оцінка '+sim.last.g+' · ':'')+NORMS[S.sim.sex].label+' · спроба зарахована',26,58)}
+c.restore()}
+function simUpdate(dt){sim.t+=dt;sim.dash+=dt*24;sim.shake=Math.max(0,sim.shake-dt*1.6);
+sim.parts=sim.parts.filter(p=>{p.l-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=340*dt;if(p.y>sim.gy+8){p.y=sim.gy+8;p.vy*=-.3}return p.l>0});
+if(!RM)sim.motes.forEach(m=>{m.y-=dt*.012*m.s;m.x+=dt*.006;if(m.y<-.02){m.y=.62;m.x=Math.random()}});
+const spd=S.sim.speed;sim.st+=dt*spd;
+switch(sim.state){
+case 'crouch':if(sim.st>=.38){sim.state='swing';sim.st=0}break;
+case 'swing':if(sim.st>=.22){sim.state='launch';sim.st=0;sfx.whoosh()}break;
+case 'launch':if(sim.st>=.12){sim.state='flight';sim.st=0;sim.ft=0}break;
+case 'flight':sim.ft+=dt*spd;if(sim.ft>=sim.fl.T){sim.ft=sim.fl.T;sim.state='land';sim.st=0;simFinalize()}break;
+case 'land':if(sim.st>=.5){sim.state='result';sim.st=0;$('btnJump').disabled=false}break;
+case 'result':if(sim.st>=.6){sim.state='idle';sim.st=0}break;}}
+let simLast=0;
+function simFrame(ts){const dt=Math.min(.045,(ts-simLast)/1000||.016);simLast=ts;simUpdate(dt);simDraw();sim.raf=requestAnimationFrame(simFrame)}
+function loopStart(){if(sim.raf==null){simLast=performance.now();sim.raf=requestAnimationFrame(simFrame)}}
+function loopStop(){if(sim.raf!=null){cancelAnimationFrame(sim.raf);sim.raf=null}}
+new ResizeObserver(()=>{sizeCanvas();simDraw()}).observe(sim.cv);
+if('IntersectionObserver' in window)new IntersectionObserver(es=>{es.forEach(en=>{sim.visible=en.isIntersecting;if(sim.visible&&!document.hidden)loopStart();else loopStop()})},{threshold:.05}).observe(sim.cv);
+document.addEventListener('visibilitychange',()=>{if(document.hidden){loopStop();rtSuspend()}else if(sim.visible)loopStart()});
+sizeCanvas();loopStart();
+/* sim controls */
+const bindRange=(id,key,out,fmt)=>{$(id).addEventListener('input',e=>{S.sim[key]=+e.target.value;$(out).textContent=fmt(+e.target.value);save();predictUI()})};
+bindRange('ctlAngle','angle','oAngle',v=>v+'°');bindRange('ctlV','v','oV',v=>v.toFixed(2)+' м/с');bindRange('ctlSquat','squat','oSquat',v=>v+'%');bindRange('ctlSwing','swing','oSwing',v=>v+'%');bindRange('ctlSpeed','speed','oSpeed',v=>v+'×');
+$('sexSel').addEventListener('change',e=>{S.sim.sex=e.target.value;save();predictUI();renderHistory();sfx.tick()});
+$('tglTraj').addEventListener('change',e=>{S.sim.traj=e.target.checked;save()});
+$('tglGrid').addEventListener('change',e=>{S.sim.grid=e.target.checked;save()});
+$('btnJump').addEventListener('click',simJump);
+$('btnRand').addEventListener('click',()=>{S.sim.angle=Math.round(32+Math.random()*16);S.sim.v=+(3.8+Math.random()*1.6).toFixed(2);S.sim.squat=Math.round(60+Math.random()*35);S.sim.swing=Math.round(10+Math.random()*18)*5;save();syncSimUI();sfx.pop();simJump()});
+$('btnReset').addEventListener('click',()=>{S.sim=Object.assign({},DEF.sim);save();syncSimUI();sim.history=[];sim.best=0;sim.last=null;sim.lastArc=null;renderHistory();predictUI();toast('Параметри та спроби скинуто','info')});
+$('btnPng').addEventListener('click',()=>{simDraw();sim.cv.toBlob(b=>{if(b){download(b,`strybok-${sim.last?sim.last.cm:predCm()}cm.png`);toast('Кадр симулятора збережено 📸','good');sfx.pop()}else toast('Не вдалося зберегти кадр','err')},'image/png')});
+syncSimUI();renderHistory();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{sizeCanvas();simDraw()});
+/* real result */
+function realRender(){if(S.real==null){$('realOut').innerHTML='';return}const g=gradeOf(S.real,S.sim.sex);$('realOut').innerHTML=`<span class="res-chip">${icon('flag')}Мій результат: ${S.real} см · ${g?'оцінка '+g:'поки поза нормою'} (${NORMS[S.sim.sex].label.toLowerCase()})</span>`}
+$('realSave').addEventListener('click',()=>{const v=Math.round(+$('realIn').value);if(!v||v<80||v>350){$('realIn').classList.add('bad');toast('Введи результат від 80 до 350 см','warn');return}$('realIn').classList.remove('bad');S.real=v;save();realRender();toast('Результат записано у щоденник ✓','good');sfx.good()});
+$('realIn').addEventListener('input',()=>$('realIn').classList.remove('bad'));
+if(S.real!=null)$('realIn').value=S.real;realRender();
+/* ============ COMMANDS PLAYBACK ============ */
+let cmdTimers=[];
+function cmdActivate(i){$$('.cmd').forEach((c,k)=>c.classList.toggle('active',k===i))}
+$$('.cmd').forEach(c=>{const act=()=>{cmdActivate(+c.dataset.cmd);sfx.tick()};c.addEventListener('click',act);c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act()}})});
+$('cmdPlay').addEventListener('click',()=>{const b=$('cmdPlay');if(b.disabled)return;b.disabled=true;cmdTimers.forEach(clearTimeout);cmdTimers=[];
+cmdActivate(0);sfx.whistle();
+cmdTimers.push(setTimeout(()=>{cmdActivate(1);sfx.set()},1700));
+cmdTimers.push(setTimeout(()=>{cmdActivate(2);sfx.go()},3600));
+cmdTimers.push(setTimeout(()=>{cmdActivate(-1);b.disabled=false},5400))});
+/* ============ REACTION TRAINER ============ */
+const rt={state:'idle',timers:[],goAt:0,valid:0,results:[]};
+function rtClear(){rt.timers.forEach(clearTimeout);rt.timers=[]}
+function rtRender(){const z=$('rtZone');z.className='rt-zone st-'+rt.state;
+const map={idle:['Стартуй, коли готовий(а)','Тренер подасть команди зі свистком. Тисни сюди або пробіл після «РУШ!»'],ready:['На старт!','Прийми положення… чекай наступної команди'],set:['Увага!','Завмри. Сигнал пролунає будь-якої миті…'],go:['РУШ!','ТИСНИ ЗАРАЗ!'],false:['Фальстарт!','Рух до сигналу не зараховується. Спробуй ще раз.']};
+if(rt.state==='result'){const r=rt.results[rt.results.length-1];z.innerHTML=`<div class="rt-ms">${r} мс</div><div class="rt-sub">${r<=160?'Спринтерський рівень! ⚡':r<=220?'Дуже добра реакція':r<=300?'Норма для новачка — тренуйся далі':'Повільнувато. Концентруйся на сигналі'}</div>`}
+else{const m=map[rt.state]||map.idle;z.innerHTML=`<div class="rt-big">${m[0]}</div><div class="rt-sub">${m[1]}</div>`}
+$('rtCount').textContent=`Зараховано: ${Math.min(rt.valid,3)}/3${rt.valid>=3?' ✓':''}`;
+$('rtResults').innerHTML=rt.results.slice(-5).map(r=>typeof r==='number'?`<span class="h-chip ${r<=160?'g5':r<=220?'g4':'g3'}">${r} мс</span>`:`<span class="h-chip" style="border-color:var(--red);color:var(--redD);background:var(--redS)">фальстарт</span>`).join('');
+const bb=$('rtBest');if(S.bestRt){bb.style.display='inline-flex';bb.textContent=`Найкраща: ${S.bestRt} мс`}
+$('rtStart').disabled=['ready','set','go'].includes(rt.state);
+$('rtStart').innerHTML=(rt.state==='result'||rt.state==='false')?`${icon('play')}Ще спроба`:`${icon('play')}Почати спробу`}
+function rtBegin(){rtClear();rt.state='ready';rtRender();sfx.whistle();
+rt.timers.push(setTimeout(()=>{rt.state='set';rtRender();sfx.set();
+rt.timers.push(setTimeout(()=>{rt.state='go';rt.goAt=performance.now();rtRender();sfx.go()},1200+Math.random()*2000))},1000))}
+function rtFalse(msg){rtClear();rt.state='false';rt.results.push('F');if(rt.results.length>8)rt.results.shift();rtRender();sfx.buzz();if(msg)toast(msg,'warn')}
+function rtTap(){if(rt.state==='ready'||rt.state==='set')rtFalse('Рано! Це фальстарт — чекай команду «Руш!»');
+else if(rt.state==='go'){const ms=Math.round(performance.now()-rt.goAt);if(ms<100){rtFalse('Швидше 100 мс — фальстарт за правилом World Athletics');return}
+rt.state='result';rt.results.push(ms);if(rt.results.length>8)rt.results.shift();rt.valid++;if(!S.bestRt||ms<S.bestRt){S.bestRt=ms;save()}
+if(rt.valid>=3)mark('start');rtRender();ms<=220?sfx.good():sfx.tick()}}
+function rtSuspend(){if(['ready','set','go'].includes(rt.state)){rtClear();rt.state='idle';rtRender()}}
+$('rtZone').addEventListener('pointerdown',e=>{e.preventDefault();if(['ready','set','go'].includes(rt.state))rtTap()});
+$('rtZone').addEventListener('keydown',e=>{if(e.key==='Enter'&&['ready','set','go'].includes(rt.state))rtTap()});
+$('rtStart').addEventListener('click',rtBegin);
+$('rtReset').addEventListener('click',()=>{rtClear();rt.state='idle';rt.valid=0;rt.results=[];rtRender();toast('Тренер реакції скинуто','info')});
+document.addEventListener('keydown',e=>{if(e.code==='Space'&&!e.repeat&&['ready','set','go'].includes(rt.state)&&!/(INPUT|TEXTAREA|SELECT)/.test(e.target.tagName)){e.preventDefault();rtTap()}});
+rtRender();
+/* ============ COOLDOWN ============ */
+const CD_ICONS=[
+'<circle cx="20" cy="8" r="4"/><path d="M20 12v10M20 22l-6 11M20 22l6 11M20 15l-7 5M20 15l7 5"/>',
+'<circle cx="29" cy="15" r="4"/><path d="M25 17l-11 3M14 20v14M25 17l-3 10"/>',
+'<circle cx="17" cy="7" r="4"/><path d="M17 11v12M17 23l-3 11M17 23l9 3-2-9M17 14l7 5"/>',
+'<circle cx="25" cy="9" r="4"/><path d="M24 13l-4 9M20 22l8 4 2 8M20 22l-10 8-6 4M24 14l7 5"/>',
+'<path d="M35 4v32"/><circle cx="15" cy="10" r="4"/><path d="M16 14l8 6M24 20l11-5M24 20l-6 4M18 24l6 10M18 24l-9 10"/>',
+'<circle cx="19" cy="9" r="4"/><path d="M19 13v9M11 28c4 4 12 4 16 0M19 22l-8 6M19 22l8 6M30 8c3 2 3 5 0 7M34 5c4 3 4 9 0 12"/>'];
+const CD=[
+{n:'Ходьба та дихання',d:'Ходьба на місці. Вдих носом на 4 рахунки — видих ротом на 4. Плечі розслаб.',s:30},
+{n:'Нахил уперед',d:'Ноги прямі, плавний нахил до підлоги — задня поверхня стегон. Без ривків.',s:30},
+{n:'Розтяжка квадрицепса',d:'Стоячи, п’ятка до сідниці, коліна поруч. Тримай рівновагу рукою за опору. Зміни ногу.',s:30},
+{n:'Випад · згиначі стегна',d:'Глибокий випад, заднє коліно до підлоги, таз м’яко вперед. На 15-й секунді зміни ногу.',s:30},
+{n:'Литкові м’язи',d:'Упор руками в стіну, п’ята задньої ноги притиснута до підлоги. Відчуй натяг литки.',s:30},
+{n:'Дихальне завершення',d:'Сидячи: вдих 4 с — пауза 2 с — видих 6 с. Оціни пульс: він має спадати.',s:30}];
+const cd={i:0,rem:30,run:false,done:false,last:0};
+$('cdSteps').innerHTML=CD.map((s,i)=>`<button class="cd-step" data-i="${i}"><span class="cd-ico"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">${CD_ICONS[i]}</svg></span><span><b>${i+1}. ${s.n}</b><span>${s.d}</span></span><span class="cd-sec">30 с</span></button>`).join('');
+function cdRender(){const C=439.8,step=CD[cd.i];
+$('cdRing').style.strokeDashoffset=cd.done?0:C*(1-clamp(cd.rem/step.s,0,1));
+const r=Math.max(0,Math.ceil(cd.rem));$('cdTime').textContent=cd.done?'✓':`00:${String(r).padStart(2,'0')}`;
+$('cdStepNo').textContent=cd.done?'готово':`крок ${cd.i+1}/6`;
+$('cdName').textContent=cd.done?'Заминку завершено!':step.n;
+$('cdDesc').textContent=cd.done?'ЧСС має повернутись до вихідної ±10–15% за 3–5 хв. Перейди до проби Руф’є та тесту.':step.d;
+$('cdPlayTxt').textContent=cd.done?'Ще раз':cd.run?'Пауза':(cd.rem<step.s||cd.i>0)?'Продовжити':'Старт';
+$('cdPlay').firstElementChild.innerHTML=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${cd.run?'<path d="M8 5v14M16 5v14"/>':IC.play}</svg>`;
+$('cdNext').disabled=cd.done;
+$('cdTotal').style.width=((cd.done?180:cd.i*30+(30-cd.rem))/180*100)+'%';
+$$('.cd-step').forEach((el,k)=>{el.classList.toggle('active',!cd.done&&k===cd.i);el.classList.toggle('done',cd.done||k<cd.i)})}
+function cdFinish(){cd.run=false;cd.done=true;cd.rem=0;cdRender();mark('cool');sfx.win();toast('Заминку завершено — пульс відновлюється 💚','good')}
+setInterval(()=>{const now=performance.now();const dt=(now-(cd.last||now))/1000;cd.last=now;if(!cd.run||cd.done)return;cd.rem-=dt;
+if(cd.rem<=0){if(cd.i>=CD.length-1){cdFinish()}else{cd.i++;cd.rem=CD[cd.i].s;sfx.chime();cdRender()}}else cdRender()},200);
+$('cdPlay').addEventListener('click',()=>{if(cd.done){cd.i=0;cd.rem=30;cd.done=false;cd.run=true}else cd.run=!cd.run;cd.last=performance.now();cdRender();sfx.tick()});
+$('cdNext').addEventListener('click',()=>{if(cd.done)return;if(cd.i>=CD.length-1)cdFinish();else{cd.i++;cd.rem=CD[cd.i].s;sfx.chime();cdRender()}});
+$('cdReset').addEventListener('click',()=>{cd.i=0;cd.rem=30;cd.run=false;cd.done=false;cdRender()});
+$('cdSteps').addEventListener('click',e=>{const b=e.target.closest('.cd-step');if(!b)return;cd.i=+b.dataset.i;cd.rem=CD[cd.i].s;cd.done=false;cdRender();sfx.tick()});
+cdRender();
+/* ============ RUFIER ============ */
+$('rfCalc').addEventListener('click',()=>{const ids=['rf1','rf2','rf3'],vals=ids.map(id=>Math.round(+$(id).value));let ok=true;
+ids.forEach((id,i)=>{const bad=!vals[i]||vals[i]<5||vals[i]>60;$(id).classList.toggle('bad',bad);if(bad)ok=false});
+if(!ok){toast('Заповни P₁, P₂, P₃ значеннями 5–60 (ЧСС за 15 с)','warn');return}
+const ir=Math.round((4*(vals[0]+vals[1]+vals[2])-200)/10*10)/10;
+const lv=ir<=0?['Відмінна реакція ССС','var(--greenS)','var(--greenD)','Серце працює економно. Можеш тренуватись в основній групі без обмежень.']:ir<=5?['Добра реакція','var(--tealS)','var(--tealD)','Показник у межах норми тренованої людини. Продовжуй у тому ж дусі.']:ir<=10?['Задовільна реакція','var(--amberS)','var(--amberD)','Норма для нетренованої людини. Додай аеробні навантаження 2–3 рази на тиждень.']:ir<=15?['Слабка реакція','var(--orangeS)','var(--orangeD)','Знизь інтенсивність, нарощуй навантаження поступово. Повтори пробу через тиждень.']:['Незадовільна реакція','var(--redS)','var(--redD)','Перед інтенсивними навантаженнями проконсультуйся з медпрацівником. Рекомендована спеціальна медична група.'];
+const out=$('rfOut');out.className='rf-out show';out.style.background=lv[1];out.style.borderColor=lv[2];out.style.color=lv[2];
+out.innerHTML=`<b>${lv[0]}</b><span class="rf-ir">ІР = ${ir}</span><p style="color:var(--ink2)">${lv[3]}</p><span class="rf-form">ІР = (4×(${vals[0]}+${vals[1]}+${vals[2]}) − 200) / 10 · ЧСС: ${vals[0]*4} / ${vals[1]*4} / ${vals[2]*4} уд/хв</span>`;
+S.rufier=ir;save();sfx.good();toast('Індекс Руф’є збережено у щоденник','good')});
+['rf1','rf2','rf3'].forEach(id=>$(id).addEventListener('input',()=>$(id).classList.remove('bad')));
+/* ============ QUIZ ============ */
+const QUIZ=[
+{q:'Який кут вильоту раціональний у стрибку в довжину з місця?',o:['15–20°','38–45°','60–70°','близько 90°'],c:1,e:'Теоретичний оптимум — 45°, але з урахуванням роботи м’язів практичний кут вильоту становить 38–45°.'},
+{q:'Скільки фаз виділяють у стрибку в довжину з місця?',o:['2','3','4','5'],c:2,e:'Підготовка (замах), поштовх, політ і приземлення — чотири фази.'},
+{q:'Правильне приземлення — це…',o:['на прямі ноги','на одну ногу з розворотом','на обидві ноги зі згинанням колін і перекатом на всю стопу','на п’яти з прямими колінами'],c:2,e:'Амортизація колінами знижує ударне навантаження на суглоби та хребет — ключовий принцип безпеки.'},
+{q:'Як вимірюють результат стрибка?',o:['до найдалішого сліду носка','від лінії поштовху до найближчого сліду будь-якої частини тіла','від носків до п’яток у польоті','за дальністю маху руками'],c:1,e:'Якщо спортсмен упав назад, рахують слід рук чи сідниць — тому не відхиляйся назад після приземлення.'},
+{q:'Що дає активний мах руками у стрибку?',o:['нічого не змінює','додає 10–15% до результату','зменшує результат на 5%','лише рівновагу в польоті'],c:1,e:'Мах збільшує імпульс поштовху та швидкість вильоту загального центру мас тіла.'},
+{q:'На яку команду таз піднімають вище рівня плечей?',o:['«На старт!»','«Увага!»','«Руш!»','на всі команди'],c:1,e:'На «Увага!» таз на 10–20 см вище плечей, вага тіла — на руках і передній нозі.'},
+{q:'Що робить задня нога на команду «На старт!»?',o:['стоїть на колодці','коліно спирається на доріжку','повністю випрямлена','піднята вгору'],c:1,e:'У низькому старті коліно задньої ноги на доріжці; на «Увага!» воно відривається для поштовху.'},
+{q:'Стартовий розбіг — це…',o:['перші 2–3 кроки після поштовху','відрізок ≈15–30 м поступового набору швидкості з випрямленням тулуба','фінішне прискорення','біг за інерцією після старту'],c:1,e:'Нахил тулуба зменшується поступово: ≈45° на перших кроках до 80–90° ближче до 25–30 м.'},
+{q:'Типова помилка одразу після стартового поштовху:',o:['збереження нахилу тулуба','миттєве випрямлення тулуба й погляд угору','потужні часті перші кроки','активна робота руками'],c:1,e:'Різке випрямлення «гальмує» розбіг: швидкість набирається саме в нахилі.'},
+{q:'Фальстартом вважається…',o:['будь-який вихід після «Руш!»','початок руху до сигналу або реакція швидша за 0.100 с','повільну реакцію на сигнал','вихід із високого старту'],c:1,e:'За правилами World Athletics реакція швидше 100 мс фізіологічно неможлива — це фальстарт.'}];
+const GRADES=[3,3,3,3,5,6,7,9,10,11,12];
+const qz={list:[],idx:0,score:0,answers:[],started:false};
+const quizBox=$('quizBox');
+function qIntro(){quizBox.innerHTML=`<h3>${icon('spark')}Перевір себе — 10 питань</h3><p style="font-size:14px;color:var(--ink2);font-weight:600">Питання перемішуються щоразу. Одна спроба на питання, після відповіді — пояснення. Зараховано від 7 правильних.</p><div class="q-intro-rules"><span class="chip">${icon('clock')}без обмеження часу</span><span class="chip">${icon('check')}пояснення після кожної</span><span class="chip">${icon('flag')}шкала 12 балів</span>${S.bestQuiz?`<span class="chip chip-acc">${icon('spark')}найкраще: ${S.bestQuiz}/10</span>`:''}</div><button class="btn btn-acc" id="qStart">${icon('play')}Почати тест</button>`}
+function qStart(){qz.list=shuffle(QUIZ).map(it=>({q:it.q,e:it.e,opts:shuffle(it.o.map((t,i)=>({t,ok:i===it.c})))}));qz.idx=0;qz.score=0;qz.answers=[];qz.started=true;qRender();sfx.tick()}
+function qDots(){return qz.list.map((_,i)=>`<span class="q-dot ${i<qz.idx?'done':''} ${i===qz.idx?'cur':''}"></span>`).join('')}
+function qRender(){const it=qz.list[qz.idx];quizBox.innerHTML=`<div class="q-top"><span class="q-count">Питання ${qz.idx+1}/${qz.list.length}</span><div class="q-dots">${qDots()}</div></div><div class="q-text">${esc(it.q)}</div><div class="q-opts">${it.opts.map((o,i)=>`<button class="opt" data-i="${i}"><i>${'АБВГ'[i]}</i><span>${esc(o.t)}</span></button>`).join('')}</div><div class="note q-explain" id="qExp">${icon('info')}<span>${esc(it.e)}</span></div><div class="q-foot"><button class="btn btn-acc q-next" id="qNext">${qz.idx===qz.list.length-1?'Результати':'Далі'} ${icon('arrowR')}</button></div>`}
+function qPick(i){const it=qz.list[qz.idx],ok=it.opts[i].ok;
+$$('.opt',quizBox).forEach((b,k)=>{b.disabled=true;if(it.opts[k].ok)b.classList.add('good');else if(k===i)b.classList.add('bad')});
+if(ok){qz.score++;sfx.good()}else sfx.bad();
+qz.answers.push({q:it.q,picked:it.opts[i].t,ok,correct:it.opts.find(o=>o.ok).t});
+$('qExp').classList.add('show');$('qNext').classList.add('show')}
+function qNext(){qz.idx++;if(qz.idx<qz.list.length)qRender();else qResults()}
+function qResults(){const sc=qz.score,grade=GRADES[sc],pass=sc>=7,C=439.8;
+if(sc>S.bestQuiz){S.bestQuiz=sc;save()}
+if(pass)mark('test');
+quizBox.innerHTML=`<div class="q-res-top"><div class="q-ring"><svg viewBox="0 0 170 170"><circle class="cd-ring-bg" cx="85" cy="85" r="70"/><circle class="cd-ring-fg" cx="85" cy="85" r="70" style="stroke-dashoffset:${C}"/></svg><div class="q-ring-c"><b>${sc}/10</b><span>правильних</span></div></div><div class="q-verdict"><b>${pass?`Зараховано! Оцінка ${grade}/12 ${sc>=9?'🏆':''}`:'Поки не зараховано'}</b><p>${sc>=9?'Блискуче — техніку стрибка та старту засвоєно на рівні «відмінно». Не забудь про інфографіку!':pass?'Добрий результат. Переглянь пояснення до помилок нижче — і матеріал закріпиться остаточно.':`Твій орієнтир — ${grade}/12. Повернись до розділів «Стрибок» і «Старт», пограйся із симулятором і спробуй ще раз.`}</p><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-acc btn-sm" id="qRetry">${icon('reset')}Пройти ще раз</button>${!pass?`<a class="btn btn-ghost btn-sm" href="#jump">Повторити матеріал</a>`:''}</div></div></div><div class="q-review">${qz.answers.map(a=>`<div class="q-rev ${a.ok?'ok':'no'}">${icon(a.ok?'check':'x')}<span><b>${esc(a.q)}</b>${a.ok?'✓ '+esc(a.picked):`Твоя: ${esc(a.picked)} · <em>Правильно: ${esc(a.correct)}</em>`}</span></div>`).join('')}</div>`;
+requestAnimationFrame(()=>requestAnimationFrame(()=>{const fg=quizBox.querySelector('.cd-ring-fg');if(fg)fg.style.strokeDashoffset=C*(1-sc/10)}));
+if(sc>=8){confetti(quizBox);sfx.win()}else pass?sfx.good():sfx.bad()}
+quizBox.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.id==='qStart'||b.id==='qRetry')qStart();else if(b.id==='qNext')qNext();else if(b.classList.contains('opt')&&!b.disabled)qPick(+b.dataset.i)});
+qIntro();
+/* ============ HOMEWORK CHECKLIST ============ */
+const HW=['Обрано тему: стрибок або низький старт','Показано всі 4 фази / 3 команди з ілюстраціями та підписами','Є ключові цифри: кути, відстані, відсотки','Вказано щонайменше 3 типові помилки','Додано блок безпеки та самоконтролю (ЧСС)','Є ≥2 джерела та підпис: ПІБ, група','Файл PNG/PDF експортовано і надіслано викладачу'];
+function hwRender(){$('hwCk').innerHTML=HW.map((t,i)=>`<label class="ck ${S.hwCk[i]?'checked':''}"><input type="checkbox" data-i="${i}" ${S.hwCk[i]?'checked':''}><span><b>${t}</b></span></label>`).join('');const n=S.hwCk.filter(Boolean).length;$('hwCount').textContent=`${n}/7`;$('hwBar').style.width=(n/7*100)+'%'}
+$('hwCk').addEventListener('change',e=>{const i=+e.target.dataset.i;S.hwCk[i]=e.target.checked;save();hwRender();sfx.tick();if(S.hwCk.filter(Boolean).length===7)toast('Чек-лист готовий — час здавати інфографіку! 🎉','good')});
+hwRender();
+/* ============ INFOGRAPHIC BUILDER ============ */
+const ACCENTS={orange:{a:'#F4511E',d:'#C93A10',s:'#FEEDE4',g:'#F59F0A',name:'Помаранч'},blue:{a:'#2563EB',d:'#1E4FC2',s:'#E7EEFE',g:'#0EA5E9',name:'Синій'},green:{a:'#3E9B4F',d:'#2E7D3B',s:'#E6F4E7',g:'#0D9488',name:'Зелений'},violet:{a:'#7C3AED',d:'#6023C0',s:'#F0E9FD',g:'#C026D3',name:'Фіолетовий'},red:{a:'#E11D48',d:'#BE123C',s:'#FDE8EC',g:'#F4511E',name:'Червоний'}};
+const B_DEF={theme:'jump',title:'Стрибок у довжину з місця: 4 фази',author:'Студент(ка) групи 2-М1',accent:'orange',font:1,blocks:{phases:true,stats:true,errors:true,norms:true,safety:true}};
+const B_TITLES={jump:'Стрибок у довжину з місця: 4 фази',start:'Низький старт: команди та розбіг'};
+let b=Object.assign({},B_DEF,S.builder||{});b.blocks=Object.assign({},B_DEF.blocks,b.blocks);
+function wrapText(str,max){const words=String(str).split(' '),lines=[];let cur='';words.forEach(w=>{if((cur+' '+w).trim().length>max&&cur){lines.push(cur);cur=w}else cur=(cur+' '+w).trim()});if(cur)lines.push(cur);return lines.slice(0,3)}
+function buildSVG(){const A=ACCENTS[b.accent]||ACCENTS.orange,fs=b.font,W=800,P=40,CW=W-2*P;
+const jump=b.theme==='jump';
+const phases=jump?[['prep','Підготовка','Замах назад, напівприсід'],['launch','Поштовх','Кут вильоту 38–45°'],['flight','Політ','Групування, ноги вперед'],['land','Приземлення','На обидві ноги, коліна м’які']]:[['onStart','«На старт!»','Коліно задньої ноги на доріжці'],['attention','«Увага!»','Таз на 10–20 см вище плечей'],['go','«Руш!»','Вибуховий поштовх, нахил ≈45°']];
+const stats=jump?[['38–45°','раціональний кут вильоту'],['+10–15%','внесок маху руками'],['4','фази техніки стрибка']]:[['1–1.5','стопи до передньої колодки'],['15–30 м','довжина стартового розбігу'],['≈45°','нахил тулуба на перших кроках']];
+const errs=jump?['Поштовх без активного маху руками','Приземлення на прямі ноги — травманебезпечно','Падіння назад: слід рук зменшує результат']:['Миттєве випрямлення тулуба після поштовху','Погляд угору замість у доріжку','Старт до сигналу — фальстарт'];
+const safety=jump?'Стрибай лише після розминки на неслизькій поверхні (килимок). Приземляйся на обидві ноги з амортизацією колін. Контролюй ЧСС: після серії — до 140–150 уд/хв, відновлення за 3–5 хв.':'Розминка обов’язкова. Колодки фіксуй надійно, доріжка — без сторонніх предметів. Прискорення виконуй на рівній неслизькій поверхні, нарощуй швидкість поступово.';
+const T=(x,y,txt,size,weight,fill,anchor='start',fam='Manrope')=>`<text x="${x}" y="${y}" font-family="${fam},'Segoe UI',sans-serif" font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="${anchor}">${esc(txt)}</text>`;
+let parts=[],y=0;
+const titleLines=wrapText(b.title||B_TITLES[b.theme],Math.floor(26/fs));
+const HH=titleLines.length>1?176:142;
+parts.push(`<rect x="0" y="0" width="${W}" height="${HH}" fill="url(#ig-h)"/>`);
+parts.push(`<circle cx="${W-70}" cy="26" r="72" fill="#fff" opacity=".10"/><circle cx="${W-160}" cy="${HH}" r="46" fill="#fff" opacity=".08"/>`);
+parts.push(`<g transform="translate(${W-235},${HH-198}) scale(1.05)" opacity=".2">${ath(jump?'flight':'go',{stroke:'#fff',accent:'#fff',far:'rgba(255,255,255,.55)'})}</g>`);
+parts.push(T(P,42,'ФІЗИЧНА КУЛЬТУРА · МЕДИЧНИЙ ФАХОВИЙ КОЛЕДЖ · ІНФОГРАФІКА',11*fs,700,'rgba(255,255,255,.85)'));
+titleLines.forEach((ln,i)=>parts.push(T(P,84+i*40*fs,ln,30*fs,700,'#fff','start','Unbounded')));
+parts.push(T(P,HH-22,b.author||'Автор не вказаний',12.5*fs,600,'rgba(255,255,255,.92)'));
+y=HH+30;
+const label=t=>{parts.push(`<rect x="${P}" y="${y-11}" width="10" height="10" rx="3" fill="${A.a}"/>`);parts.push(T(P+18,y,t.toUpperCase(),12.5*fs,700,A.d));y+=20};
+if(b.blocks.phases){label(jump?'Фази техніки':'Стартові команди');const n=phases.length,gap=12,cw=(CW-gap*(n-1))/n,ch=205;
+phases.forEach((ph,i)=>{const x=P+i*(cw+gap);parts.push(`<rect x="${x}" y="${y}" width="${cw}" height="${ch}" rx="14" fill="#fff" stroke="#E8E0D0"/>`);
+const ps=.62,px=x+(cw-200*ps)/2;parts.push(`<g transform="translate(${px},${y+12}) scale(${ps})"><line x1="24" y1="176" x2="176" y2="176" stroke="#E8E0D0" stroke-width="3"/>${ath(ph[0],{accent:A.a})}</g>`);
+parts.push(T(x+cw/2,y+152,ph[1],14.5*fs,700,'#1C2433','middle'));
+wrapText(ph[2],Math.floor(26/fs)).slice(0,2).forEach((ln,k)=>parts.push(T(x+cw/2,y+170+k*14*fs,ln,10.5*fs,600,'#6C7486','middle')))});
+y+=ch+28}
+if(b.blocks.stats){label('Ключові цифри');const gap=12,tw=(CW-2*gap)/3,th=92;
+stats.forEach((st,i)=>{const x=P+i*(tw+gap);parts.push(`<rect x="${x}" y="${y}" width="${tw}" height="${th}" rx="14" fill="${A.s}"/>`);parts.push(T(x+16,y+42*fs,st[0],25*fs,700,A.d,'start','Unbounded'));wrapText(st[1],Math.floor(32/fs)).slice(0,2).forEach((ln,k)=>parts.push(T(x+16,y+62*fs+k*13*fs,ln,11*fs,600,'#414B5E')))});
+y+=th+28}
+if(b.blocks.errors){label('Типові помилки');errs.forEach(er=>{parts.push(`<circle cx="${P+10}" cy="${y+4}" r="9" fill="#FDE8EC"/>`);parts.push(`<path d="M${P+6} ${y} l8 8 M${P+14} ${y} l-8 8" stroke="#E11D48" stroke-width="2.2" stroke-linecap="round"/>`);parts.push(T(P+30,y+9,er,12.5*fs,600,'#414B5E'));y+=28});y+=16}
+if(b.blocks.norms){label(jump?'Орієнтовні нормативи, см':'Орієнтири швидкості та реакції');
+if(jump){const rh=34,c1=240,cw2=(CW-c1)/3;parts.push(`<rect x="${P}" y="${y}" width="${CW}" height="${rh}" rx="9" fill="${A.a}"/>`);parts.push(T(P+14,y+22,'Оцінка',12*fs,700,'#fff'));['3','4','5'].forEach((g,i)=>parts.push(T(P+c1+cw2*i+cw2/2,y+22,g,13*fs,700,'#fff','middle')));y+=rh+6;
+[['Юнаки',['190','210','230']],['Дівчата',['150','170','190']]].forEach(row=>{parts.push(`<rect x="${P}" y="${y}" width="${CW}" height="${rh}" rx="9" fill="#fff" stroke="#E8E0D0"/>`);parts.push(T(P+14,y+22,row[0],12.5*fs,700,'#1C2433'));row[1].forEach((v,i)=>parts.push(T(P+c1+cw2*i+cw2/2,y+22,v,13*fs,700,A.d,'middle','JetBrains Mono')));y+=rh+6});y+=18}
+else{[['Реакція тренованих спринтерів','120–160 мс'],['Фальстарт за правилом World Athletics','< 0.100 с'],['Повне випрямлення тулуба','до 25–30 м']].forEach(row=>{parts.push(`<rect x="${P}" y="${y}" width="${CW}" height="34" rx="9" fill="#fff" stroke="#E8E0D0"/>`);parts.push(T(P+14,y+22,row[0],12*fs,600,'#414B5E'));parts.push(T(P+CW-14,y+22,row[1],12.5*fs,700,A.d,'end','JetBrains Mono'));y+=40});y+=12}}
+if(b.blocks.safety){const lines=wrapText(safety,Math.floor(96/fs)),bh=26+lines.length*16*fs;
+parts.push(`<rect x="${P}" y="${y}" width="${CW}" height="${bh}" rx="14" fill="${A.s}"/>`);
+parts.push(`<circle cx="${P+24}" cy="${y+bh/2}" r="12" fill="${A.a}"/><path d="M${P+18} ${y+bh/2} l4.5 4.5 8-9" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
+parts.push(T(P+46,y+20,'БЕЗПЕКА ТА САМОКОНТРОЛЬ',10.5*fs,700,A.d));
+lines.forEach((ln,i)=>parts.push(T(P+46,y+36+i*16*fs,ln,11.5*fs,600,'#414B5E')));
+y+=bh+22}
+parts.push(`<line x1="${P}" y1="${y}" x2="${W-P}" y2="${y}" stroke="#E8E0D0" stroke-width="1.5"/>`);
+parts.push(T(P,y+22,'Джерела: підручник «Фізичне виховання» для ЗФПО · правила World Athletics · матеріали заняття №14',9.5*fs,600,'#6C7486'));
+parts.push(T(W-P,y+22,'осінь 2026',9.5*fs,700,A.d,'end'));
+const H=Math.ceil(y+40);
+const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Інфографіка: ${esc(b.title)}"><defs><linearGradient id="ig-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${A.a}"/><stop offset="1" stop-color="${A.g}"/></linearGradient><clipPath id="ig-cp"><rect width="${W}" height="${H}" rx="22"/></clipPath></defs><g clip-path="url(#ig-cp)"><rect width="${W}" height="${H}" fill="#FBF7EF"/>${parts.join('')}</g><rect x="1" y="1" width="${W-2}" height="${H-2}" rx="21" fill="none" stroke="#E8E0D0" stroke-width="2"/></svg>`;
+return{svg,H}}
+function bRender(){const r=buildSVG();$('bPreview').innerHTML=r.svg}
+function bSync(){$('bTheme').value=b.theme;$('bTitle').value=b.title;$('bAuthor').value=b.author;
+$$('.swatch').forEach(s=>s.classList.toggle('sel',s.dataset.k===b.accent));
+$('bTPhases').checked=b.blocks.phases;$('bTStats').checked=b.blocks.stats;$('bTErrors').checked=b.blocks.errors;$('bTNorms').checked=b.blocks.norms;$('bTSafety').checked=b.blocks.safety;
+$('bFont').value=b.font;$('bFontOut').textContent=Math.round(b.font*100)+'%'}
+function bSave(){S.builder=b;save()}
+$('bSwatches').innerHTML=Object.entries(ACCENTS).map(([k,a])=>`<button class="swatch" data-k="${k}" title="${a.name}" aria-label="Колір: ${a.name}" style="background:linear-gradient(135deg,${a.a},${a.g})"></button>`).join('');
+$('bSwatches').addEventListener('click',e=>{const s=e.target.closest('.swatch');if(!s)return;b.accent=s.dataset.k;bSave();bSync();bRender();sfx.tick()});
+$('bTheme').addEventListener('change',e=>{b.theme=e.target.value;b.title=B_TITLES[b.theme];bSave();bSync();bRender();sfx.tick()});
+$('bTitle').addEventListener('input',e=>{b.title=e.target.value;bSave();bRender()});
+$('bAuthor').addEventListener('input',e=>{b.author=e.target.value;bSave();bRender()});
+[['bTPhases','phases'],['bTStats','stats'],['bTErrors','errors'],['bTNorms','norms'],['bTSafety','safety']].forEach(([id,k])=>$(id).addEventListener('change',e=>{b.blocks[k]=e.target.checked;bSave();bRender()}));
+$('bFont').addEventListener('input',e=>{b.font=+e.target.value;$('bFontOut').textContent=Math.round(b.font*100)+'%';bSave();bRender()});
+$('bReset').addEventListener('click',()=>{b=JSON.parse(JSON.stringify(B_DEF));bSave();bSync();bRender();toast('Конструктор скинуто до типових налаштувань','info')});
+let fontCSSCache=null;
+async function getFontCSS(){if(fontCSSCache!==null)return fontCSSCache;const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),5000);
+try{const r=await fetch('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&family=Unbounded:wght@700&display=swap',{signal:ctrl.signal});let css=await r.text();
+const urls=[...new Set([...css.matchAll(/url\((https:[^)]+)\)/g)].map(m=>m[1]))].slice(0,14);const map={};
+await Promise.all(urls.map(async u=>{const rr2=await fetch(u,{signal:ctrl.signal});const bb=await rr2.arrayBuffer();const ua=new Uint8Array(bb);let bin='';for(let i=0;i<ua.length;i+=0x8000)bin+=String.fromCharCode.apply(null,ua.subarray(i,i+0x8000));map[u]='data:font/woff2;base64,'+btoa(bin)}));
+urls.forEach(u=>{css=css.split(u).join(map[u])});fontCSSCache=css}catch(e){fontCSSCache=''}finally{clearTimeout(to)}
+return fontCSSCache}
+$('bSvg').addEventListener('click',()=>{const {svg}=buildSVG();const styled=svg.replace('<defs>',`<style>@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700&amp;family=Unbounded:wght@700&amp;display=swap');</style><defs>`);
+download(new Blob([styled],{type:'image/svg+xml;charset=utf-8'}),`infografika-${b.theme}.svg`);mark('hw');toast('SVG збережено — додай до домашнього завдання ✓','good');sfx.pop()});
+$('bPng').addEventListener('click',async()=>{const btn=$('bPng');btn.disabled=true;const {svg,H}=buildSVG();
+try{const css=await getFontCSS();const styled=css?svg.replace('<defs>',`<style>${css}</style><defs>`):svg;
+const url=URL.createObjectURL(new Blob([styled],{type:'image/svg+xml;charset=utf-8'}));
+const img=new Image();
+await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=url});
+const cv=document.createElement('canvas');cv.width=1600;cv.height=H*2;const c=cv.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,cv.width,cv.height);c.drawImage(img,0,0,1600,H*2);URL.revokeObjectURL(url);
+await new Promise((res,rej)=>cv.toBlob(pb=>{if(pb){download(pb,`infografika-${b.theme}.png`);res()}else rej(new Error('blob'))},'image/png'));
+mark('hw');toast('Інфографіку PNG збережено 🎉 Залишилось надіслати викладачу','good');sfx.win()}
+catch(e){toast('Не вдалося створити PNG — спробуй кнопку SVG','err')}
+btn.disabled=false});
+bSync();bRender();
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(bRender);
+/* ============ INIT ============ */
+refreshProgress();
+addEventListener('pagehide',()=>{rtClear();cmdTimers.forEach(clearTimeout);loopStop()});
+</script>
+</body>
+</html>
